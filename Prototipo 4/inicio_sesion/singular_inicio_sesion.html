@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Singular Pets — Iniciar Sesión</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange:      #F87141;
+      --orange-dark: #E05E2A;
+      --orange-pale: #FEF0E9;
+      --orange-mid:  #FDDDCC;
+      --charcoal:    #333333;
+      --gray:        #8E8E93;
+      --gray-light:  #F5F5F7;
+      --gray-border: #E5E5EA;
+      --white:       #FFFFFF;
+      --text:        #1C1C1E;
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md:   0 8px 24px rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--gray-light);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PANEL IZQUIERDO ── */
+    .left {
+      position: relative;
+      overflow: hidden;
+      background: #C4A882;
+      min-height: 100vh;
+    }
+
+    /* Foto única ocupando todo el panel */
+    .left-photo {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .left-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+
+    /* Overlay degradado para legibilidad del texto */
+    .left-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.08) 40%,
+        rgba(0,0,0,0.65) 100%
+      );
+    }
+
+    .left-content {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      padding: 48px;
+    }
+
+    /* Brand */
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-icon {
+      width: 44px; height: 44px;
+      background: var(--orange); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(248,113,65,0.5);
+    }
+    .brand-icon svg { width: 24px; height: 24px; fill: white; }
+    .brand-name {
+      font-size: 22px; font-weight: 800;
+      color: white; letter-spacing: -0.3px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Hero text */
+    .left-hero { }
+    .left-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(248,113,65,0.25);
+      border: 1px solid rgba(248,113,65,0.4);
+      color: #FFB899;
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px; border-radius: 9999px;
+      margin-bottom: 20px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .left-tag::before {
+      content:''; width:6px; height:6px;
+      background: var(--orange); border-radius: 50%;
+    }
+    .left-title {
+      font-size: clamp(34px, 4vw, 50px);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -1.5px; color: white;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .left-title span { color: var(--orange); }
+    .left-desc {
+      font-size: 15px; color: rgba(255,255,255,0.85);
+      font-weight: 400; line-height: 1.75; max-width: 360px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Features */
+    .left-features { display: flex; flex-direction: column; gap: 10px; }
+    .feat {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      backdrop-filter: blur(12px);
+    }
+    .feat-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--orange); flex-shrink: 0;
+    }
+    .feat span { font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 500; }
+
+    /* ── PANEL DERECHO ── */
+    .right {
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      padding: 48px 56px;
+    }
+    .auth-box { width: 100%; max-width: 400px; }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: var(--gray-light);
+      border-radius: 14px; padding: 4px;
+      margin-bottom: 40px;
+      border: 1px solid var(--gray-border);
+    }
+    .tab {
+      flex: 1; padding: 11px 16px; border: none; cursor: pointer;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      color: var(--gray); background: transparent; transition: all .2s;
+    }
+    .tab.active {
+      background: var(--white); color: var(--text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Screens */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    .auth-title {
+      font-size: 28px; font-weight: 800;
+      letter-spacing: -0.5px; color: var(--text); margin-bottom: 6px;
+    }
+    .auth-subtitle {
+      font-size: 14px; color: var(--gray);
+      font-weight: 400; line-height: 1.6; margin-bottom: 32px;
+    }
+
+    /* Form */
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--charcoal); margin-bottom: 8px;
+    }
+    .input-wrap { position: relative; }
+    .input-wrap svg {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 17px; height: 17px; stroke: var(--gray); fill: none; stroke-width: 2;
+      pointer-events: none;
+    }
+    .form-input {
+      width: 100%; padding: 13px 16px 13px 44px;
+      background: var(--gray-light);
+      border: 1.5px solid var(--gray-border);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text);
+      outline: none; transition: border-color .2s, background .2s;
+    }
+    .form-input::placeholder { color: #AEAEB2; }
+    .form-input:focus {
+      border-color: var(--orange); background: var(--white);
+      box-shadow: 0 0 0 3px rgba(248,113,65,0.12);
+    }
+    .form-input-plain { padding-left: 16px !important; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* Botón principal */
+    .btn-main {
+      width: 100%; padding: 15px;
+      background: var(--orange); color: white; border: none;
+      border-radius: 14px; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(248,113,65,0.32);
+      margin-top: 8px;
+    }
+    .btn-main:hover {
+      background: var(--orange-dark); transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(248,113,65,0.38);
+    }
+    .btn-main:active { transform: scale(.99); }
+
+    .hint {
+      text-align: center; margin-top: 20px;
+      font-size: 13px; color: var(--gray);
+    }
+    .hint strong { color: var(--orange); font-weight: 600; }
+
+    /* Error */
+    .error-card {
+      background: #FFF5F2;
+      border: 1.5px solid rgba(248,113,65,0.2);
+      border-radius: 16px; padding: 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .error-emoji { font-size: 28px; flex-shrink: 0; }
+    .error-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .error-msg { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    .error-btns { display: flex; gap: 10px; }
+    .btn-retry {
+      background: var(--orange); color: white;
+      padding: 11px 22px; border: none; border-radius: 10px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: background .2s;
+    }
+    .btn-retry:hover { background: var(--orange-dark); }
+    .btn-back {
+      background: var(--gray-light); color: var(--charcoal);
+      padding: 11px 22px; border: 1.5px solid var(--gray-border);
+      border-radius: 10px; font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+    }
+
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.35);
+      border-top-color: white; border-radius: 50%;
+      animation: spin .6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 860px) {
+      body { grid-template-columns: 1fr; }
+      .left { display: none; }
+      .right { padding: 40px 24px; min-height: 100vh; }
+    }
+
+    /* Botón volver a inicio */
+    .btn-back-home {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: var(--gray);
+      text-decoration: none; margin-bottom: 32px;
+      transition: color .2s;
+    }
+    .btn-back-home:hover { color: var(--orange); }
+    .btn-back-home svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* Éxito de registro */
+    .success-card {
+      background: #F0FBF3; border: 1.5px solid rgba(52,199,89,0.25);
+      border-radius: 16px; padding: 28px 24px; text-align: center;
+      display: none;
+    }
+    .success-card.show { display: block; }
+    .success-icon { font-size: 48px; margin-bottom: 12px; }
+    .success-title { font-size: 20px; font-weight: 800; color: #1A7A35; margin-bottom: 8px; }
+    .success-desc { font-size: 14px; color: #2D6A4F; line-height: 1.6; margin-bottom: 20px; }
+    .btn-go-login { 
+      display: inline-block; padding: 12px 28px;
+      background: #34C759; color: white; border-radius: 12px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; border: none; transition: opacity .2s;
+    }
+    .btn-go-login:hover { opacity: .9; }
+  </style>
+</head>
+<body>
+
+<!-- ── PANEL IZQUIERDO ── -->
+<div class="left">
+  <!-- Imagen del gatito con collar QR naranja -->
+  <div class="left-photo">
+  <video autoplay muted loop playsinline
+         style="width:100%; height:100%; object-fit:cover;">
+    <source src="img/fiodor_animado.mp4" type="video/mp4">
+    <!-- Fallback si el video no carga -->
+    <img src="img/fiodor_perfil.jpg" alt="Gato con collar QR Singular Pets">
+  </video>
+</div>>
+  <div class="left-bg"></div>
+
+  <div class="left-content">
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24">
+          <ellipse cx="6" cy="7" rx="2.2" ry="3"/>
+          <ellipse cx="11" cy="5" rx="1.8" ry="2.5"/>
+          <ellipse cx="16" cy="6" rx="1.8" ry="2.5"/>
+          <ellipse cx="19.5" cy="10" rx="1.8" ry="2.5"/>
+          <path d="M12 11c-4 0-7 3-5.5 7.5C7.5 21 10 21.5 12 21.5s4.5-.5 5.5-3C19 14 16 11 12 11z"/>
+        </svg>
+      </div>
+      <span class="brand-name">Singular Pets</span>
+    </div>
+
+    <!-- Hero text -->
+    <div class="left-hero">
+      <div class="left-tag">Identidad digital</div>
+      <h1 class="left-title">Protege lo que<br>más <span>quieres.</span></h1>
+      <p class="left-desc">Placas QR/NFC conectadas a un perfil digital. Si alguien encuentra a tu mascota, te contacta al instante.</p>
+    </div>
+
+    <!-- Features -->
+    <div class="left-features">
+      <div class="feat"><div class="feat-dot"></div><span>Perfil siempre activo, 24/7 en la nube</span></div>
+      <div class="feat"><div class="feat-dot"></div><span>Sin apps — cualquier celular puede escanear</span></div>
+      <div class="feat"><div class="feat-dot"></div><span>Actualiza los datos cuando quieras</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PANEL DERECHO ── -->
+<div class="right">
+  <div class="auth-box">
+
+    <a href="../prototipo/singular_prototipods.html" class="btn-back-home">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Volver al inicio
+    </a>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-login">Iniciar sesión</button>
+      <button class="tab" id="tab-register">Crear cuenta</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="screen active" id="screen-login">
+      <h2 class="auth-title">Bienvenido de vuelta</h2>
+      <p class="auth-subtitle">Accede a tu cuenta para gestionar tus mascotas.</p>
+      <form id="form-login" novalidate>
+        <div class="form-group">
+          <label class="form-label">Correo o usuario</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <input class="form-input" id="login-email" type="text" placeholder="demo" required autocomplete="username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Contraseña</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <input class="form-input" id="login-pass" type="password" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+        </div>
+        <button class="btn-main" type="submit" id="btn-login">
+          Ingresar
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </form>
+      <p class="hint">Credenciales de prueba: <strong>demo</strong> / <strong>demo</strong></p>
+    </div>
+
+    <!-- REGISTRO -->
+    <div class="screen" id="screen-register">
+      <h2 class="auth-title">Crear cuenta</h2>
+      <p class="auth-subtitle">Regístrate y empieza a proteger a tus mascotas.</p>
+      <form id="form-register" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input class="form-input form-input-plain" id="reg-name" type="text" placeholder="María" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Apellido</label>
+            <input class="form-input form-input-plain" id="reg-lastname" type="text" placeholder="Gómez" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Número de cédula</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <input class="form-input" id="reg-id" type="text" placeholder="1234567890" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fecha de nacimiento</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <input class="form-input" id="reg-birth" type="date" required>
+          </div>
+        </div>
+        <button class="btn-main" type="submit" id="btn-register">
+          Crear mi cuenta
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <line x1="20" y1="8" x2="20" y2="14"/>
+            <line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- ERROR -->
+    <div class="screen" id="screen-error">
+      <h2 class="auth-title">Algo salió mal</h2>
+      <p class="auth-subtitle">No pudimos procesar tu solicitud.</p>
+      <div class="error-card">
+        <div class="error-emoji">⚠️</div>
+        <div>
+          <div class="error-title">Error de autenticación</div>
+          <div class="error-msg" id="error-message">Las credenciales ingresadas no son válidas.</div>
+        </div>
+      </div>
+      <div class="error-btns">
+        <button class="btn-retry" id="retry-btn">Reintentar</button>
+        <button class="btn-back" id="back-btn">Volver</button>
+      </div>
+    </div>
+
+  <!-- ÉXITO REGISTRO -->
+  <div class="success-card" id="success-card">
+    <div class="success-icon">🎉</div>
+    <div class="success-title">¡Cuenta creada!</div>
+    <div class="success-desc">Tu cuenta fue registrada exitosamente. Ya puedes iniciar sesión con tus credenciales.</div>
+    <button class="btn-go-login" id="btn-go-login">Ir a iniciar sesión</button>
+  </div>
+
+  </div>
+</div>
+
+<script>
+  const tabLogin    = document.getElementById('tab-login');
+  const tabRegister = document.getElementById('tab-register');
+  const screens = {
+    login:    document.getElementById('screen-login'),
+    register: document.getElementById('screen-register'),
+    error:    document.getElementById('screen-error')
+  };
+  let lastScreen = 'login', isLoading = false;
+
+  function showScreen(name) {
+    Object.values(screens).forEach(s => s.classList.remove('active'));
+    [tabLogin, tabRegister].forEach(t => t.classList.remove('active'));
+    screens[name].classList.add('active');
+    if (name === 'login')    tabLogin.classList.add('active');
+    if (name === 'register') tabRegister.classList.add('active');
+    if (name !== 'error') lastScreen = name;
+  }
+
+  tabLogin.addEventListener('click',    () => showScreen('login'));
+  tabRegister.addEventListener('click', () => showScreen('register'));
+
+  function setLoading(btn, loading, orig) {
+    btn.disabled = loading;
+    btn.innerHTML = loading
+      ? `<span class="spinner"></span> Procesando...`
+      : orig;
+  }
+
+  document.getElementById('form-login').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (isLoading) return;
+    const email = document.getElementById('login-email').value.trim();
+    const pass  = document.getElementById('login-pass').value.trim();
+    const btn   = document.getElementById('btn-login');
+    const orig  = btn.innerHTML;
+    if (!email || !pass) {
+      document.getElementById('error-message').textContent = 'Por favor completa todos los campos.';
+      showScreen('error'); return;
+    }
+    isLoading = true; setLoading(btn, true);
+    await new Promise(r => setTimeout(r, 1200));
+    if (email === 'demo' && pass === 'demo') {
+      localStorage.setItem('sp_usuario', email);
+      window.location.href = '../singular_interfaz_usuario/singular_interfaz_usuario_final.html';
+    } else {
+      document.getElementById('error-message').textContent = 'Credenciales incorrectas. Usa demo / demo para probar.';
+      showScreen('error');
+    }
+    isLoading = false; setLoading(btn, false, orig);
+  });
+
+  document.getElementById('form-register').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (isLoading) return;
+    const nombre   = document.getElementById('reg-name').value.trim();
+    const apellido = document.getElementById('reg-lastname').value.trim();
+    const cedula   = document.getElementById('reg-id').value.trim();
+    const fecha    = document.getElementById('reg-birth').value;
+    const btn      = document.getElementById('btn-register');
+    const orig     = btn.innerHTML;
+    if (!nombre || !apellido || !cedula || !fecha) {
+      document.getElementById('error-message').textContent = 'Todos los campos son obligatorios.';
+      showScreen('error'); return;
+    }
+    if (!/^\d{7,10}$/.test(cedula)) {
+      document.getElementById('error-message').textContent = 'La cédula debe tener entre 7 y 10 dígitos.';
+      showScreen('error'); return;
+    }
+    isLoading = true; setLoading(btn, true);
+    await new Promise(r => setTimeout(r, 1200));
+    // Mostrar éxito visual
+    ['screen-login','screen-register','screen-error'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('active');
+    });
+    document.getElementById('success-card').classList.add('show');
+    document.getElementById('form-register').reset();
+    isLoading = false; setLoading(btn, false, orig);
+  });
+
+  document.getElementById('retry-btn').addEventListener('click', () => showScreen(lastScreen));
+  document.getElementById('back-btn').addEventListener('click',  () => showScreen('login'));
+  document.getElementById('btn-go-login').addEventListener('click', () => {
+    document.getElementById('success-card').classList.remove('show');
+    showScreen('login');
+  });
+</script>
+</body>
+</html>

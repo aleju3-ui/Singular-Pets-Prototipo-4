@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Singular Pets — Identificación Digital para Mascotas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#F87141"/>
+  <link rel="stylesheet" href="../css/variables.css"/>
+  <link rel="stylesheet" href="../css/landing.css"/>
+</head>
+<body>
+
+<nav id="siteNav">
+  <a href="#inicio" class="nav-brand">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24">
+        <ellipse cx="6" cy="7" rx="2.2" ry="3"/>
+        <ellipse cx="11" cy="5" rx="1.8" ry="2.5"/>
+        <ellipse cx="16" cy="6" rx="1.8" ry="2.5"/>
+        <ellipse cx="19.5" cy="10" rx="1.8" ry="2.5"/>
+        <path d="M12 11c-4 0-7 3-5.5 7.5C7.5 21 10 21.5 12 21.5s4.5-.5 5.5-3C19 14 16 11 12 11z"/>
+      </svg>
+    </div>
+    <span class="nav-name">Singular Pets</span>
+  </a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-menu" id="navMenu">
+  <div class="nav-links">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#blog">Blog</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <div class="nav-actions">
+    <a href="../qr-perfil/singular_qr_perfil.html" class="btn-nav-ghost">🐱 Ver perfil demo</a>
+    <a href="../inicio_sesion/singular_inicio_sesion.html" class="btn-nav-ghost">Iniciar sesión</a>
+    <a href="#contacto" class="btn-nav-cta">Empezar ahora</a>
+  </div>
+  </div>
+</nav>
+
+<section id="inicio">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge fade-up fade-up-1">Identificación digital para mascotas</div>
+      <h1 class="hero-title fade-up fade-up-2">Tu mascota,<br>siempre <span>encontrada.</span></h1>
+      <p class="hero-desc fade-up fade-up-3">Placas QR/NFC vinculadas a un perfil digital en la nube. Cualquier persona puede contactarte al instante — sin apps, sin complicaciones.</p>
+      <div class="hero-btns fade-up fade-up-4">
+        <a href="#contacto" class="btn-hero-primary">Crear perfil gratis</a>
+        <a href="#como-funciona" class="btn-hero-ghost">Cómo funciona →</a>
+      </div>
+      <div class="hero-stats" style="justify-content: center; text-align: center;">
+        <div>
+          <div class="hstat-num">100%</div>
+          <div class="hstat-label">sin apps para escanear</div>
+        </div>
+        <div>
+          <div class="hstat-num">24/7</div>
+          <div class="hstat-label">perfil siempre activo</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-float-pill">🐾 Perfil activo</div>
+      <div class="hero-img-wrap">
+        <video autoplay muted loop playsinline preload="auto"
+               poster="img/hero_poster.webp" aria-label="Perro y gato juntos en casa">
+          <source src="img/hero_video_576.mp4" type="video/mp4">
+        </video>
+      </div>
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-gallery">
+    <div class="gallery-img">
+      <img src="img/gato_hero.webp" alt="Gato protegido" width="900" height="420" loading="lazy" decoding="async" onerror="this.parentElement.style.background='#FEF0E9'">
+    </div>
+    <div class="gallery-img">
+      <img src="img/como_funciona.webp" alt="Escaneo QR" width="900" height="900" loading="lazy" decoding="async" onerror="this.parentElement.style.background='#FEF0E9'">
+    </div>
+    <div class="gallery-img">
+      <img src="img/testimonios.webp" alt="Familia con mascota" width="800" height="800" loading="lazy" decoding="async" onerror="this.parentElement.style.background='#FEF0E9'">
+    </div>
+  </div>
+</section>
+
+<section class="pilares-bg">
+  <div class="container">
+    <div class="pilares-header">
+      <div class="section-tag">Por qué elegirnos</div>
+      <h2 class="section-title">Todo lo que tu mascota <span>merece</span></h2>
+      <p class="section-sub">Simple, rápido y efectivo. Sin complicaciones técnicas.</p>
+    </div>
+    <div class="pilares-grid">
+      <div class="pilar-card">
+        <div class="pilar-icon">🛡️</div>
+        <h3>Seguridad inteligente</h3>
+        <p>Tu mascota siempre identificada, incluso si pierde su placa. Su información vive en la nube y no desaparece.</p>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-icon">📱</div>
+        <h3>Tecnología fácil</h3>
+        <p>Solo escanea el código QR o acerca el celular a la placa NFC. Sin instalar apps. Funciona en cualquier teléfono.</p>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-icon">⚡</div>
+        <h3>Control en tiempo real</h3>
+        <p>Actualiza nombre, fotos, número y datos médicos cuando quieras. Los cambios se reflejan al instante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona" style="background:var(--white);">
+  <div class="container">
+    <div class="como-layout">
+      <div class="como-img">
+        <img src="img/como_funciona.webp" alt="Cómo funciona Singular Pets" width="900" height="900" loading="lazy" decoding="async"
+             onerror="this.parentElement.style.background='#FEF0E9'">
+      </div>
+      <div>
+        <div class="section-tag">El proceso</div>
+        <h2 class="section-title">Tres pasos para <span>proteger</span> a tu mejor amigo</h2>
+        <div class="como-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3>Compra tu placa</h3>
+              <p>Elige entre QR o NFC. La recibes en tu puerta lista para activar, con instrucciones claras.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3>Crea el perfil</h3>
+              <p>Registra a tu mascota: nombre, foto, tus contactos y datos médicos básicos en menos de 5 minutos.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3>¡Protegidos!</h3>
+              <p>Si alguien encuentra a tu mascota, escanea la placa y te contacta al instante. Tú recibes una notificación.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="productos-bg">
+  <div class="container">
+    <div class="productos-header">
+      <div class="section-tag">Nuestros productos</div>
+      <h2 class="section-title">Todo incluido desde <span>el primer día</span></h2>
+      <p class="section-sub">Sin costos ocultos. Sin apps obligatorias. Sin complicaciones.</p>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card featured">
+        <div class="producto-img">
+          <img src="img/servicios.webp" alt="Placa QR/NFC" width="700" height="700" loading="lazy" decoding="async"
+               onerror="this.parentElement.style.background='#FEF0E9'">
+          <div class="producto-featured-tag">MÁS POPULAR</div>
+        </div>
+        <div class="producto-body">
+          <h3>Placa QR/NFC</h3>
+          <p>Placa física resistente al agua con código QR o chip NFC integrado.</p>
+          <div class="producto-price">$45.000 <span style="font-size:16px;color:var(--gray)">COP</span></div>
+          <div class="producto-price-tag">Pago único</div>
+          <ul class="producto-features">
+            <li>Resistente al agua y golpes</li>
+            <li>Escaneo sin app necesaria</li>
+            <li>Grabado personalizado del nombre</li>
+            <li>Diseño elegante y duradero</li>
+          </ul>
+          <a href="#contacto" class="btn-producto btn-producto-primary">Comprar ahora</a>
+        </div>
+      </div>
+      
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="img/perfil_digital.webp" alt="Icono Perfil Digital" width="480" height="480" loading="lazy" decoding="async" class="img-icon">
+        </div>
+        <div class="producto-body">
+          <h3>Perfil Digital</h3>
+          <p>Espacio en la nube para guardar datos, fotos y contactos de emergencia.</p>
+          <div class="producto-price" style="color:var(--charcoal)">Incluido</div>
+          <div class="producto-price-tag">Con cualquier placa</div>
+          <ul class="producto-features">
+            <li>Actualización en tiempo real</li>
+            <li>Fotos ilimitadas</li>
+            <li>Múltiples contactos de emergencia</li>
+            <li>Historial médico completo</li>
+          </ul>
+          <a href="#contacto" class="btn-producto btn-producto-ghost">Más información</a>
+        </div>
+      </div>
+      
+      <div class="producto-card">
+        <div class="producto-img">
+          <img src="img/alerta_perdida.webp" alt="Icono Alerta Perdida" width="480" height="480" loading="lazy" decoding="async" class="img-icon">
+        </div>
+        <div class="producto-body">
+          <h3>Alerta Perdida</h3>
+          <p>Activa el modo "perdido" y recibe notificación cada vez que alguien escanee.</p>
+          <div class="producto-price" style="color:var(--charcoal)">Incluido</div>
+          <div class="producto-price-tag">Con cualquier placa</div>
+          <ul class="producto-features">
+            <li>Notificación instantánea</li>
+            <li>Ubicación aproximada del escaneo</li>
+            <li>Mensaje personalizado de ayuda</li>
+            <li>Activación en un clic</li>
+          </ul>
+          <a href="#contacto" class="btn-producto btn-producto-ghost">Más información</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--white);">
+  <div class="container">
+    <div class="testimonios-header">
+      <div class="section-tag">Historias reales</div>
+      <h2 class="section-title">Lo que dicen quienes ya <span>confían</span> en nosotros</h2>
+      <p class="section-sub">Familias colombianas que ya protegen a sus mascotas con Singular Pets.</p>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Gracias a Singular Pets encontraron a Max en menos de 2 horas. La persona que lo vio escaneó su placa y me llamó al instante. ¡No lo podía creer!"</blockquote>
+        <div class="testimonio-author">
+          <div class="author-avatar">MG</div>
+          <div>
+            <div class="author-name">María González</div>
+            <div class="author-pet">Bogotá · Max, Golden Retriever</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Me encanta poder actualizar la info de Luna desde el celular. Cambié de número y en segundos ya estaba actualizado en su perfil."</blockquote>
+        <div class="testimonio-author">
+          <div class="author-avatar">CR</div>
+          <div>
+            <div class="author-name">Carlos Ruiz</div>
+            <div class="author-pet">Medellín · Luna, Gata Persa</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Súper fácil de usar. No necesité instalar nada. Mis papás mayores también pudieron usar la placa de Rocky sin ningún problema."</blockquote>
+        <div class="testimonio-author">
+          <div class="author-avatar">AV</div>
+          <div>
+            <div class="author-name">Andrea Vargas</div>
+            <div class="author-pet">Cali · Rocky, Labrador</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="nosotros-bg">
+  <div class="container">
+    <div class="nosotros-layout">
+      <div class="nosotros-img">
+        <img src="img/nosotros.webp" alt="Sobre Singular Pets" width="900" height="900" loading="lazy" decoding="async"
+             onerror="this.parentElement.style.background='#FEF0E9'">
+      </div>
+      <div class="nosotros-text">
+        <div class="section-tag">Sobre nosotros</div>
+        <h2 class="section-title">Tecnología para quienes <span>aman</span> a sus mascotas</h2>
+        <p>Una placa con un nombre grabado ya no es suficiente en un mundo digital. En Singular Pets, transformamos un accesorio tradicional en un portal de seguridad inteligente.</p>
+        <p>Nuestra tecnología permite que, con un simple escaneo, cualquier persona pueda ayudar a tu mejor amigo a volver a casa. Sin aplicaciones pesadas, sin procesos lentos; solo una conexión inmediata entre tú y quien encuentre a tu mascota, con la información médica y de contacto que realmente importa en una emergencia.</p>
+        <div class="nosotros-stats">
+          <div class="nstat"><strong>100%</strong><span>Sin Apps</span></div>
+          <div class="nstat"><strong>⚡</strong><span>Conexión Inmediata</span></div>
+          <div class="nstat"><strong>🧠</strong><span>Perfil Inteligente</span></div>
+          <div class="nstat"><strong>24/7</strong><span>Siempre activo</span></div>
+        </div>
+        <div class="nosotros-note">
+          <p>ℹ️ <strong>Importante:</strong> Singular Pets complementa el microchip tradicional, no lo reemplaza. Nuestro sistema es de identificación inmediata para quienes encuentren a tu mascota.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG - ARTÍCULOS MODIFICADOS SEGÚN LA ESTRUCTURA DEL USUARIO -->
+<section id="blog" style="background:var(--white);">
+  <div class="container">
+    <div class="blog-header">
+      <div class="section-tag">Consejos y recursos</div>
+      <h2 class="section-title">Para cuidar <span>mejor</span> a tu mejor amigo</h2>
+      <p class="section-sub">Tips, guías y todo lo que necesitas saber sobre identificación digital.</p>
+    </div>
+    <div class="blog-grid">
+      <!-- Artículo 1: ¿Qué hacer si tu mascota se pierde? -->
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="articulos/img/articulo_perdida-800.webp" alt="Mascota perdida" width="800" height="330" loading="lazy" decoding="async"
+               onerror="this.parentElement.style.background='#FEF0E9'">
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Emergencias</span>
+          <h3>¿Qué hacer si tu mascota se pierde?</h3>
+          <p>Pasos inmediatos: activa el modo perdido, contacta refugios cercanos, publica en redes locales y mantén la calma.</p>
+          <a href="articulos/articulo-perdida.html" class="blog-link">Leer artículo →</a>
+        </div>
+      </div>
+      <!-- Artículo 2: Importancia de actualizar los datos -->
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="articulos/img/articulo_datos-800.webp" alt="Actualizar datos de mascota" width="800" height="330" loading="lazy" decoding="async"
+               onerror="this.parentElement.style.background='#FEF0E9'">
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Consejos</span>
+          <h3>Importancia de actualizar los datos</h3>
+          <p>Un dato viejo puede retrasar el reencuentro. Aprende qué actualizar y cuándo.</p>
+          <a href="articulos/articulo-datos.html" class="blog-link">Leer artículo →</a>
+        </div>
+      </div>
+      <!-- Artículo 3: Cómo el QR/NFC protege a tu mascota -->
+      <div class="blog-card">
+        <div class="blog-img">
+          <img src="articulos/img/articulo_qr-800.webp" alt="Tecnología QR para mascotas" width="800" height="330" loading="lazy" decoding="async"
+               onerror="this.parentElement.style.background='#FEF0E9'">
+        </div>
+        <div class="blog-body">
+          <span class="blog-tag">Tecnología</span>
+          <h3>Cómo el QR/NFC protege a tu mascota</h3>
+          <p>A diferencia del microchip, el QR permite contacto inmediato sin equipos especiales.</p>
+          <a href="articulos/articulo-qr-nfc.html" class="blog-link">Leer artículo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto-bg">
+  <div class="container">
+    <div class="contacto-layout">
+      <div>
+        <div class="section-tag">Contacto</div>
+        <h2 class="section-title">¿Tienes preguntas?</h2>
+        <p class="section-sub">Estamos aquí para ayudarte. Escríbenos y te respondemos rápido.</p>
+        <div class="contacto-info">
+          <div class="info-row">
+            <div class="info-row-icon">📧</div>
+            <span>info@singularpets.co</span>
+          </div>
+          <div class="info-row">
+            <div class="info-row-icon">📱</div>
+            <span>+57 300 123 4567</span>
+          </div>
+          <div class="info-row">
+            <div class="info-row-icon">🕐</div>
+            <span>Lun–Vie 9am–6pm · Sáb 10am–2pm</span>
+          </div>
+          <div class="info-row">
+            <div class="info-row-icon">📍</div>
+            <span>Colombia</span>
+          </div>
+        </div>
+      </div>
+      <div class="contacto-form">
+        <a href="https://wa.me/573001234567?text=Hola,%20quiero%20información%20sobre%20Singular%20Pets"
+           target="_blank" rel="noopener" class="btn-whatsapp">
+          💬 Contáctanos por WhatsApp
+        </a>
+        <div class="form-divider">o escríbenos</div>
+        <form id="contact-form">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input class="form-input" type="text" placeholder="María" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Teléfono</label>
+              <input class="form-input" type="tel" placeholder="+57 300...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Correo electrónico</label>
+            <input class="form-input" type="email" placeholder="tu@correo.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-textarea" placeholder="¿En qué te podemos ayudar?" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar mensaje</button>
+        </form>
+        <div id="form-success">✓ ¡Mensaje enviado! Te contactaremos pronto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-final">
+  <h2>¿Listo para proteger a tu mejor amigo?</h2>
+  <p>Registra la placa digital de tu mascota hoy y dale la protección que se merece.</p>
+  <a href="#contacto" class="btn-cta-white">Empezar ahora</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:32px;height:32px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="white">
+            <ellipse cx="6" cy="7" rx="2.2" ry="3"/>
+            <ellipse cx="11" cy="5" rx="1.8" ry="2.5"/>
+            <ellipse cx="16" cy="6" rx="1.8" ry="2.5"/>
+            <ellipse cx="19.5" cy="10" rx="1.8" ry="2.5"/>
+            <path d="M12 11c-4 0-7 3-5.5 7.5C7.5 21 10 21.5 12 21.5s4.5-.5 5.5-3C19 14 16 11 12 11z"/>
+          </svg>
+        </div>
+        <span style="font-size:17px;font-weight:800;color:white;">Singular Pets</span>
+      </div>
+      <p>La forma más inteligente y fácil de proteger a tu mascota. Tecnología al alcance de todos en Colombia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#">Placa QR/NFC</a></li>
+        <li><a href="#">Perfil Digital</a></li>
+        <li><a href="#">Historial Médico</a></li>
+        <li><a href="#">Alerta Perdida</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="mailto:info@singularpets.co">info@singularpets.co</a></li>
+        <li><a href="tel:+573001234567">+57 300 123 4567</a></li>
+        <li><a href="../inicio_sesion/singular_inicio_sesion.html">Iniciar sesión</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Singular Pets. Todos los derechos reservados.</p>
+    <p>Hecho con amor en Colombia 🐾</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    setTimeout(() => {
+      this.reset(); this.style.display = 'block';
+      document.getElementById('form-success').style.display = 'none';
+    }, 4000);
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const t = document.querySelector(id);
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+<script>
+  // Menú desplegable (celular y tablet)
+  (function () {
+    const nav = document.getElementById('siteNav');
+    const toggle = document.getElementById('navToggle');
+    function setOpen(open) {
+      nav.classList.toggle('nav-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+    toggle.addEventListener('click', () => setOpen(!nav.classList.contains('nav-open')));
+    nav.querySelectorAll('.nav-menu a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', e => { if (!nav.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    window.matchMedia('(min-width: 1025px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
+  })();
+</script>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+  // Scroll to top visibility
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
+</body>
+</html>

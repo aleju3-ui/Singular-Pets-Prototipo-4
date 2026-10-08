@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Qué hacer si tu mascota se pierde? — Singular Pets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #F87141; --orange-dark: #E05E2A; --orange-pale: #FEF0E9;
+      --orange-mid: #FDDDCC; --charcoal: #333333; --gray: #8E8E93;
+      --gray-light: #F5F5F7; --gray-mid: #E5E5EA; --white: #FFFFFF; --text: #1C1C1E;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05); --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-mid); padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-icon { width: 34px; height: 34px; background: var(--orange); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 19px; height: 19px; fill: white; }
+    .nav-name { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+    .nav-back {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600; color: var(--orange);
+      text-decoration: none; transition: gap .2s;
+    }
+    .nav-back:hover { gap: 10px; }
+
+    /* HERO ARTÍCULO */
+    .article-hero {
+      max-width: 860px; margin: 0 auto; padding: 56px 24px 0;
+    }
+    .article-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--orange-pale); border: 1px solid var(--orange-mid);
+      color: var(--orange); font-size: 11px; font-weight: 700;
+      padding: 4px 12px; border-radius: 9999px; margin-bottom: 20px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .article-title {
+      font-size: clamp(30px, 5vw, 48px); font-weight: 900;
+      letter-spacing: -1.5px; color: var(--text); line-height: 1.1; margin-bottom: 16px;
+    }
+    .article-subtitle {
+      font-size: 18px; color: var(--gray); font-weight: 400;
+      line-height: 1.7; margin-bottom: 28px; max-width: 640px;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 0; border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid); margin-bottom: 36px;
+    }
+    .meta-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--orange-pale); display: flex; align-items: center;
+      justify-content: center; font-size: 18px; flex-shrink: 0;
+    }
+    .meta-info p:first-child { font-size: 14px; font-weight: 600; color: var(--text); }
+    .meta-info p:last-child { font-size: 12px; color: var(--gray); margin-top: 1px; }
+
+    /* IMAGEN PRINCIPAL */
+    .article-img {
+      max-width: 860px; margin: 0 auto 48px;
+      border-radius: 20px; overflow: hidden; height: 420px;
+      box-shadow: var(--shadow-md);
+    }
+    .article-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* CONTENIDO */
+    .article-body {
+      max-width: 680px; margin: 0 auto; padding: 0 24px 80px;
+    }
+    .article-body h2 {
+      font-size: 24px; font-weight: 800; color: var(--text);
+      letter-spacing: -0.5px; margin: 40px 0 14px;
+    }
+    .article-body h3 {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      margin: 28px 0 10px;
+    }
+    .article-body p {
+      font-size: 16px; color: var(--charcoal); line-height: 1.85;
+      font-weight: 400; margin-bottom: 18px;
+    }
+    .article-body ul, .article-body ol {
+      padding-left: 0; margin-bottom: 20px;
+      display: flex; flex-direction: column; gap: 10px;
+      list-style: none;
+    }
+    .article-body ul li, .article-body ol li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--charcoal); line-height: 1.7;
+    }
+    .article-body ul li::before {
+      content: '';
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      background: var(--orange-pale); border-radius: 50%;
+      border: 1px solid var(--orange-mid);
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5L4.2 7L8 3' stroke='%23F87141' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+    .article-body ol { counter-reset: step; }
+    .article-body ol li::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 26px; height: 26px; flex-shrink: 0; margin-top: 0;
+      background: var(--orange); color: white;
+      border-radius: 8px; font-size: 12px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .tip-box {
+      background: var(--orange-pale); border: 1px solid var(--orange-mid);
+      border-radius: 16px; padding: 20px 24px; margin: 28px 0;
+    }
+    .tip-box p { font-size: 14px; color: var(--charcoal); margin: 0; line-height: 1.7; }
+    .tip-box strong { color: var(--orange); }
+
+    .warning-box {
+      background: #FFF2F1; border: 1px solid rgba(255,59,48,0.18);
+      border-radius: 16px; padding: 20px 24px; margin: 28px 0;
+    }
+    .warning-box p { font-size: 14px; color: #9B1C1C; margin: 0; line-height: 1.7; }
+
+    .divider { height: 1px; background: var(--gray-mid); margin: 36px 0; }
+
+    /* CTA */
+    .article-cta {
+      background: var(--orange); border-radius: 20px;
+      padding: 36px; text-align: center; margin: 48px 0;
+    }
+    .article-cta h3 { font-size: 22px; font-weight: 800; color: white; margin-bottom: 10px; }
+    .article-cta p { font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 20px; line-height: 1.6; }
+    .btn-cta {
+      display: inline-block; padding: 13px 32px;
+      background: white; color: var(--orange); border-radius: 9999px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 800;
+      text-decoration: none; transition: transform .2s;
+    }
+    .btn-cta:hover { transform: translateY(-2px); }
+
+    /* ARTÍCULOS RELACIONADOS */
+    .related { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+    .related h2 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .related-card {
+      background: var(--gray-light); border: 1px solid var(--gray-mid);
+      border-radius: 16px; overflow: hidden; text-decoration: none;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .related-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .related-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .related-card-body { padding: 14px 16px; }
+    .related-card-tag {
+      font-size: 10px; font-weight: 700; color: var(--orange);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
+    }
+    .related-card h3 { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.4; }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .article-img { height: 260px; border-radius: 12px; margin: 0 16px 32px; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../singular_prototipods.html" class="nav-brand">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><ellipse cx="6" cy="7" rx="2.2" ry="3"/><ellipse cx="11" cy="5" rx="1.8" ry="2.5"/><ellipse cx="16" cy="6" rx="1.8" ry="2.5"/><ellipse cx="19.5" cy="10" rx="1.8" ry="2.5"/><path d="M12 11c-4 0-7 3-5.5 7.5C7.5 21 10 21.5 12 21.5s4.5-.5 5.5-3C19 14 16 11 12 11z"/></svg>
+    </div>
+    <span class="nav-name">Singular Pets</span>
+  </a>
+  <a href="../singular_prototipods.html#blog" class="nav-back">← Volver al blog</a>
+</nav>
+
+<div class="article-hero">
+  <span class="article-tag">🚨 Emergencias</span>
+  <h1 class="article-title">¿Qué hacer si tu mascota se pierde?</h1>
+  <p class="article-subtitle">Guía paso a paso con las acciones más efectivas para encontrar a tu mascota en el menor tiempo posible.</p>
+  <div class="article-meta">
+    <div class="meta-avatar">🐾</div>
+    <div class="meta-info">
+      <p>Equipo Singular Pets</p>
+      <p>10 de mayo, 2026 · 7 min de lectura</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-img">
+  <img src="img/articulo_perdida.png" alt="Mascota perdida" onerror="this.parentElement.style.background='#FEF0E9'">
+</div>
+
+<div class="article-body">
+
+  <p>Perder a una mascota es una de las experiencias más angustiantes para cualquier dueño. Cada minuto cuenta. Tener un plan claro y actuar rápido puede marcar la diferencia entre encontrar a tu compañero en horas o en días.</p>
+
+  <p>En este artículo te damos la guía completa con los pasos más efectivos, basados en experiencias reales y recomendaciones de expertos en rescate animal.</p>
+
+  <h2>Actúa en los primeros 30 minutos</h2>
+  <p>La ventana de tiempo más crítica es la primera media hora. Las mascotas tienden a quedarse cerca del lugar donde se perdieron si no se asustan. Aquí es donde debes concentrar tu energía inicial:</p>
+
+  <ol>
+    <li><strong>Busca en el perímetro inmediato.</strong> Revisa cada rincón de tu casa, jardín, patio y áreas cercanas. Llama a tu mascota con calma, usando su nombre y palabras que reconozca.</li>
+    <li><strong>Activa el modo "Perdida" en Singular Pets.</strong> Si tienes placa QR/NFC, activa inmediatamente el estado de emergencia desde tu panel. Así, cualquier persona que escanee la placa recibirá instrucciones claras para contactarte.</li>
+    <li><strong>Avisa a vecinos cercanos.</strong> Golpea puertas en un radio de 5 casas. Los vecinos son tus mejores aliados; pueden haber visto a tu mascota sin saberlo.</li>
+    <li><strong>Revisa escondites típicos.</strong> Debajo de carros, arbustos, escaleras y espacios oscuros. Las mascotas asustadas tienden a esconderse en lugares pequeños y silenciosos.</li>
+  </ol>
+
+  <div class="tip-box">
+    <p><strong>💡 Tip Singular Pets:</strong> Las mascotas con placa QR/NFC tienen 3 veces más probabilidades de ser devueltas rápidamente porque cualquier persona puede contactar al dueño al instante, sin necesidad de llevar al animal a una veterinaria.</p>
+  </div>
+
+  <h2>Primeras 2 horas: amplía la búsqueda</h2>
+  <p>Si no la encontraste en los primeros 30 minutos, es momento de ampliar el radio de búsqueda y activar tu red de contactos:</p>
+
+  <ul>
+    <li>Publica en grupos de WhatsApp del barrio y redes sociales locales con foto reciente, nombre, señas particulares y número de contacto.</li>
+    <li>Contacta refugios y perreras municipales cercanas. Llama por teléfono y visita en persona si puedes.</li>
+    <li>Avisa a veterinarias del sector — suelen recibir mascotas encontradas o tienen tableros de anuncios.</li>
+    <li>Busca en horas de menor tráfico (amanecer o atardecer) cuando tu mascota puede estar más activa.</li>
+    <li>Deja una prenda de ropa tuya cerca del lugar donde se perdió. Tu olor puede guiarla de regreso.</li>
+  </ul>
+
+  <h2>Redes sociales: tu herramienta más poderosa</h2>
+  <p>Las redes sociales han revolucionado la búsqueda de mascotas perdidas. Saber usarlas correctamente puede hacer que tu publicación llegue a miles de personas en minutos:</p>
+
+  <h3>¿Qué incluir en tu publicación?</h3>
+  <ul>
+    <li>Foto reciente y clara de tu mascota (preferiblemente de frente).</li>
+    <li>Nombre, especie, raza, color y señas particulares.</li>
+    <li>Lugar exacto donde se perdió y fecha/hora aproximada.</li>
+    <li>Tu número de contacto (WhatsApp si es posible).</li>
+    <li>Si ofreces recompensa, mencionarlo aumenta las respuestas.</li>
+  </ul>
+
+  <h3>¿Dónde publicar?</h3>
+  <ul>
+    <li>Grupos de Facebook de tu ciudad o barrio ("Mascotas perdidas [ciudad]").</li>
+    <li>Instagram con hashtags locales (#mascotaperdida #bogota #medellin).</li>
+    <li>Nextdoor o aplicaciones vecinales de tu zona.</li>
+    <li>Twitter/X con ubicación activada.</li>
+  </ul>
+
+  <div class="warning-box">
+    <p>⚠️ <strong>Cuidado con los estafadores:</strong> Si alguien te dice que encontró a tu mascota pero te pide dinero antes de devolvértela, es una señal de alerta. Nunca pagues sin verificar primero que realmente tienen a tu mascota.</p>
+  </div>
+
+  <h2>Después de 24 horas</h2>
+  <p>Si pasa un día y aún no aparece, no pierdas la esperanza. Muchas mascotas son encontradas días o semanas después. Lo importante es mantener la búsqueda activa:</p>
+
+  <ul>
+    <li>Coloca volantes físicos en postes, tiendas y veterinarias en un radio amplio.</li>
+    <li>Visita personalmente los refugios cada 2-3 días (no solo llames).</li>
+    <li>Actualiza tus publicaciones en redes sociales regularmente para mantener el alcance.</li>
+    <li>Contacta grupos de rescatistas voluntarios de tu ciudad.</li>
+    <li>Considera contratar un rastreador canino profesional si es un perro.</li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <h2>Cómo prevenir que vuelva a pasar</h2>
+  <p>Una vez que encuentres a tu mascota, es el momento ideal para tomar medidas preventivas:</p>
+
+  <ul>
+    <li><strong>Placa de identificación QR/NFC:</strong> Es la forma más efectiva de asegurar el retorno rápido. Cualquier persona puede escanearla y contactarte al instante.</li>
+    <li><strong>Microchip:</strong> Obligatorio en muchos países, es la identificación oficial permanente. Complementa perfectamente la placa QR.</li>
+    <li><strong>Revisar cercas y puertas:</strong> Identifica y repara cualquier escape posible en tu hogar.</li>
+    <li><strong>Collar siempre puesto:</strong> Asegúrate de que tu mascota lleve collar en todo momento, especialmente al salir.</li>
+    <li><strong>Foto actualizada:</strong> Mantén fotos recientes de tu mascota para usarlas en caso de emergencia.</li>
+  </ul>
+
+  <div class="article-cta">
+    <h3>🐾 Protege a tu mascota hoy</h3>
+    <p>Una placa QR/NFC de Singular Pets puede hacer que tu mascota regrese a casa en horas. Cualquier persona puede escanearla y contactarte al instante, sin apps.</p>
+    <a href="../../inicio_sesion/singular_inicio_sesion.html" class="btn-cta">Crear perfil gratis →</a>
+  </div>
+
+</div>
+
+<!-- ARTÍCULOS RELACIONADOS -->
+<div class="related">
+  <h2>Artículos relacionados</h2>
+  <div class="related-grid">
+    <a href="articulo-datos.html" class="related-card">
+      <img src="img/como_funciona.jpg" alt="Actualizar datos" onerror="this.style.display='none'">
+      <div class="related-card-body">
+        <div class="related-card-tag">Consejos</div>
+        <h3>Importancia de actualizar los datos de tu mascota</h3>
+      </div>
+    </a>
+    <a href="articulo-qr-nfc.html" class="related-card">
+      <img src="img/servicios.jpg" alt="QR NFC" onerror="this.style.display='none'">
+      <div class="related-card-body">
+        <div class="related-card-tag">Tecnología</div>
+        <h3>Cómo el QR/NFC protege a tu mascota</h3>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* =========================================================
+   Singular Pets — Base compartida (mobile first)
+   Se escribe primero el estilo para celular y luego se
+   amplía para pantallas grandes con min-width.
+   ========================================================= */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--gray-light);
+  color: var(--text);
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+/* Foco visible para navegación con teclado */
+:focus-visible {
+  outline: 3px solid rgba(248, 113, 65, 0.6);
+  outline-offset: 2px;
+}
+
+/* ── NAV (barra superior compartida) ── */
+.site-nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-mid);
+  box-shadow: var(--shadow-sm);
+  height: var(--nav-height);
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.nav-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--orange);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(248, 113, 65, 0.3);
+}
+.nav-icon svg { width: 20px; height: 20px; fill: var(--white); }
+.nav-name {
+  font-size: 18px; font-weight: 800;
+  letter-spacing: -0.3px; white-space: nowrap;
+}
+.nav-badge {
+  padding: 4px 10px;
+  background: var(--orange-pale);
+  border: 1px solid var(--orange-mid);
+  border-radius: 9999px;
+  font-size: 11px; font-weight: 600;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+@media (min-width: 721px) {
+  .site-nav { padding: 0 var(--space-8); }
+  .nav-badge { padding: 6px 14px; font-size: 12px; }
+}
+
+/* Respeta usuarios que desactivan animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

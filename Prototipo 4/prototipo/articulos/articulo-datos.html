@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Importancia de actualizar los datos — Singular Pets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #F87141; --orange-dark: #E05E2A; --orange-pale: #FEF0E9;
+      --orange-mid: #FDDDCC; --charcoal: #333333; --gray: #8E8E93;
+      --gray-light: #F5F5F7; --gray-mid: #E5E5EA; --white: #FFFFFF; --text: #1C1C1E;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05); --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); -webkit-font-smoothing: antialiased; }
+    nav {
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-mid); padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-icon { width: 34px; height: 34px; background: var(--orange); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 19px; height: 19px; fill: white; }
+    .nav-name { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+    .nav-back { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--orange); text-decoration: none; transition: gap .2s; }
+    .nav-back:hover { gap: 10px; }
+    .article-hero { max-width: 860px; margin: 0 auto; padding: 56px 24px 0; }
+    .article-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--orange-pale); border: 1px solid var(--orange-mid); color: var(--orange); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; margin-bottom: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .article-title { font-size: clamp(30px, 5vw, 48px); font-weight: 900; letter-spacing: -1.5px; color: var(--text); line-height: 1.1; margin-bottom: 16px; }
+    .article-subtitle { font-size: 18px; color: var(--gray); font-weight: 400; line-height: 1.7; margin-bottom: 28px; max-width: 640px; }
+    .article-meta { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); margin-bottom: 36px; }
+    .meta-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .meta-info p:first-child { font-size: 14px; font-weight: 600; color: var(--text); }
+    .meta-info p:last-child { font-size: 12px; color: var(--gray); margin-top: 1px; }
+    .article-img { max-width: 860px; margin: 0 auto 48px; border-radius: 20px; overflow: hidden; height: 420px; box-shadow: var(--shadow-md); }
+    .article-img img { width: 100%; height: 100%; object-fit: cover; }
+    .article-body { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .article-body h2 { font-size: 24px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; margin: 40px 0 14px; }
+    .article-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 28px 0 10px; }
+    .article-body p { font-size: 16px; color: var(--charcoal); line-height: 1.85; font-weight: 400; margin-bottom: 18px; }
+    .article-body ul, .article-body ol { padding-left: 0; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; list-style: none; }
+    .article-body ul li, .article-body ol li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--charcoal); line-height: 1.7; }
+    .article-body ul li::before { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; background: var(--orange-pale); border-radius: 50%; border: 1px solid var(--orange-mid); background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5L4.2 7L8 3' stroke='%23F87141' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; }
+    .article-body ol { counter-reset: step; }
+    .article-body ol li::before { counter-increment: step; content: counter(step); width: 26px; height: 26px; flex-shrink: 0; margin-top: 0; background: var(--orange); color: white; border-radius: 8px; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .tip-box { background: var(--orange-pale); border: 1px solid var(--orange-mid); border-radius: 16px; padding: 20px 24px; margin: 28px 0; }
+    .tip-box p { font-size: 14px; color: var(--charcoal); margin: 0; line-height: 1.7; }
+    .tip-box strong { color: var(--orange); }
+    .checklist { background: var(--gray-light); border: 1px solid var(--gray-mid); border-radius: 16px; padding: 24px; margin: 28px 0; }
+    .checklist h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+    .checklist-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--gray-mid); font-size: 14px; color: var(--charcoal); }
+    .checklist-item:last-child { border-bottom: none; }
+    .check { width: 22px; height: 22px; border-radius: 6px; background: var(--orange); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; color: white; font-weight: 700; }
+    .divider { height: 1px; background: var(--gray-mid); margin: 36px 0; }
+    .article-cta { background: var(--orange); border-radius: 20px; padding: 36px; text-align: center; margin: 48px 0; }
+    .article-cta h3 { font-size: 22px; font-weight: 800; color: white; margin-bottom: 10px; }
+    .article-cta p { font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 20px; line-height: 1.6; }
+    .btn-cta { display: inline-block; padding: 13px 32px; background: white; color: var(--orange); border-radius: 9999px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 800; text-decoration: none; transition: transform .2s; }
+    .btn-cta:hover { transform: translateY(-2px); }
+    .related { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+    .related h2 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .related-card { background: var(--gray-light); border: 1px solid var(--gray-mid); border-radius: 16px; overflow: hidden; text-decoration: none; transition: box-shadow .2s, transform .2s; }
+    .related-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .related-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .related-card-body { padding: 14px 16px; }
+    .related-card-tag { font-size: 10px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .related-card h3 { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.4; }
+    @media (max-width: 640px) { nav { padding: 0 20px; } .article-img { height: 260px; border-radius: 12px; margin: 0 16px 32px; } .related-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../singular_prototipods.html" class="nav-brand">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><ellipse cx="6" cy="7" rx="2.2" ry="3"/><ellipse cx="11" cy="5" rx="1.8" ry="2.5"/><ellipse cx="16" cy="6" rx="1.8" ry="2.5"/><ellipse cx="19.5" cy="10" rx="1.8" ry="2.5"/><path d="M12 11c-4 0-7 3-5.5 7.5C7.5 21 10 21.5 12 21.5s4.5-.5 5.5-3C19 14 16 11 12 11z"/></svg>
+    </div>
+    <span class="nav-name">Singular Pets</span>
+  </a>
+  <a href="../singular_prototipods.html#blog" class="nav-back">← Volver al blog</a>
+</nav>
+
+<div class="article-hero">
+  <span class="article-tag">📝 Consejos</span>
+  <h1 class="article-title">Importancia de actualizar los datos de tu mascota</h1>
+  <p class="article-subtitle">Un número de teléfono desactualizado puede ser la diferencia entre encontrar a tu mascota en horas o no encontrarla nunca.</p>
+  <div class="article-meta">
+    <div class="meta-avatar">🐾</div>
+    <div class="meta-info">
+      <p>Equipo Singular Pets</p>
+      <p>8 de mayo, 2026 · 5 min de lectura</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-img">
+  <img src="img/consejos.jpg" alt="Actualizar datos mascota" onerror="this.parentElement.style.background='#FEF0E9'">
+</div>
+
+<div class="article-body">
+
+  <p>Imagina este escenario: alguien encuentra a tu perro perdido, escanea su placa QR y obtiene un número de teléfono. Llama... y no contesta nadie porque cambiaste de número hace seis meses y olvidaste actualizarlo. Tu mascota podría terminar en un refugio, o peor.</p>
+
+  <p>Mantener actualizado el perfil digital de tu mascota no es un detalle menor — es una parte esencial de su seguridad. En este artículo te explicamos qué datos actualizar, cuándo hacerlo y cómo hacerlo de forma rápida.</p>
+
+  <h2>¿Por qué es tan importante?</h2>
+  <p>El sistema de identificación digital solo funciona si la información que contiene es correcta y actual. Una placa QR/NFC con datos desactualizados es casi tan inútil como no tener placa.</p>
+  <p>Según estadísticas de organizaciones de rescate animal, más del 30% de los intentos fallidos de reunir mascotas con sus dueños se deben a información de contacto incorrecta o desactualizada.</p>
+
+  <div class="tip-box">
+    <p><strong>💡 Dato importante:</strong> Con Singular Pets puedes actualizar los datos de tu mascota en segundos desde cualquier celular. El cambio se refleja inmediatamente en el perfil público — no necesitas reemplazar la placa física.</p>
+  </div>
+
+  <h2>Qué datos debes mantener actualizados</h2>
+
+  <h3>1. Datos de contacto (prioridad alta)</h3>
+  <ul>
+    <li><strong>Número de teléfono principal:</strong> el más importante. Asegúrate de que sea el que usas actualmente y que tenga WhatsApp activo.</li>
+    <li><strong>Contacto alternativo:</strong> un familiar o amigo de confianza que pueda responder si tú no estás disponible.</li>
+    <li><strong>Dirección:</strong> si te mudas, actualízala inmediatamente.</li>
+    <li><strong>Correo electrónico:</strong> para notificaciones del sistema.</li>
+  </ul>
+
+  <h3>2. Información médica (prioridad alta)</h3>
+  <ul>
+    <li><strong>Alergias y medicamentos:</strong> crítico en caso de emergencia. Si alguien recoge a tu mascota herida, esta información puede salvarle la vida.</li>
+    <li><strong>Condiciones especiales:</strong> diabetes, epilepsia, enfermedades crónicas.</li>
+    <li><strong>Veterinario de confianza:</strong> nombre, dirección y teléfono del veterinario habitual.</li>
+    <li><strong>Vacunas recientes:</strong> fecha de la última vacuna antirrábica y otras.</li>
+  </ul>
+
+  <h3>3. Información básica de la mascota</h3>
+  <ul>
+    <li><strong>Foto actualizada:</strong> una foto antigua puede dificultar la identificación. Actualiza cada 6-12 meses o cuando haya cambios visibles.</li>
+    <li><strong>Peso actual:</strong> relevante si cambia significativamente.</li>
+    <li><strong>Señas particulares:</strong> cicatrices, manchas o características nuevas.</li>
+  </ul>
+
+  <div class="checklist">
+    <h3>✅ Checklist de actualización semestral</h3>
+    <div class="checklist-item"><div class="check">✓</div>Verificar número de teléfono principal activo</div>
+    <div class="checklist-item"><div class="check">✓</div>Confirmar contacto alternativo vigente</div>
+    <div class="checklist-item"><div class="check">✓</div>Actualizar dirección si hubo mudanza</div>
+    <div class="checklist-item"><div class="check">✓</div>Revisar alergias y medicamentos actuales</div>
+    <div class="checklist-item"><div class="check">✓</div>Subir foto reciente de la mascota</div>
+    <div class="checklist-item"><div class="check">✓</div>Actualizar datos del veterinario</div>
+    <div class="checklist-item"><div class="check">✓</div>Revisar fechas de vacunación próximas</div>
+  </div>
+
+  <h2>Cuándo actualizar inmediatamente</h2>
+  <p>Hay momentos específicos donde la actualización no puede esperar:</p>
+
+  <ol>
+    <li><strong>Cambio de número telefónico.</strong> Este es el más urgente. Hazlo el mismo día que cambies tu número.</li>
+    <li><strong>Mudanza.</strong> Actualiza dirección y, si corresponde, el veterinario de referencia.</li>
+    <li><strong>Cambio de veterinario.</strong> Los datos de emergencia deben ser del profesional actual.</li>
+    <li><strong>Nueva condición médica diagnosticada.</strong> Alergias, enfermedades o medicamentos nuevos.</li>
+    <li><strong>Cambios físicos notables.</strong> Si tu mascota tuvo una cirugía, cicatriz o cambio de pelaje significativo.</li>
+  </ol>
+
+  <div class="divider"></div>
+
+  <h2>Cómo actualizar en Singular Pets</h2>
+  <p>Una de las ventajas de Singular Pets sobre las placas tradicionales es que puedes cambiar toda la información sin reemplazar la placa física. El proceso es simple:</p>
+
+  <ol>
+    <li>Ingresa a tu cuenta en Singular Pets desde cualquier dispositivo.</li>
+    <li>Selecciona el perfil de la mascota que deseas actualizar.</li>
+    <li>Edita los campos que necesites cambiar.</li>
+    <li>Guarda los cambios — se actualizan al instante en el perfil público.</li>
+  </ol>
+
+  <p>Todo el proceso toma menos de 2 minutos. No necesitas pedir una nueva placa, no necesitas ir a ningún lugar. Desde donde estés, cuando quieras.</p>
+
+  <div class="article-cta">
+    <h3>🐾 ¿Ya revisaste los datos de tu mascota?</h3>
+    <p>Entra a tu panel de Singular Pets y verifica que todo esté al día. Es la acción más simple que puedes tomar hoy para proteger a tu compañero.</p>
+    <a href="../../inicio_sesion/singular_inicio_sesion.html" class="btn-cta">Actualizar mi perfil →</a>
+  </div>
+
+</div>
+
+<div class="related">
+  <h2>Artículos relacionados</h2>
+  <div class="related-grid">
+    <a href="articulo-perdida.html" class="related-card">
+      <img src="img/consejos.jpg" alt="Mascota perdida" onerror="this.style.display='none'">
+      <div class="related-card-body">
+        <div class="related-card-tag">Emergencias</div>
+        <h3>¿Qué hacer si tu mascota se pierde?</h3>
+      </div>
+    </a>
+    <a href="articulo-qr-nfc.html" class="related-card">
+      <img src="img/servicios.jpg" alt="QR NFC" onerror="this.style.display='none'">
+      <div class="related-card-body">
+        <div class="related-card-tag">Tecnología</div>
+        <h3>Cómo el QR/NFC protege a tu mascota</h3>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cómo el QR/NFC protege a tu mascota — Singular Pets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #F87141; --orange-dark: #E05E2A; --orange-pale: #FEF0E9;
+      --orange-mid: #FDDDCC; --charcoal: #333333; --gray: #8E8E93;
+      --gray-light: #F5F5F7; --gray-mid: #E5E5EA; --white: #FFFFFF; --text: #1C1C1E;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05); --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); -webkit-font-smoothing: antialiased; }
+    nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-mid); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-icon { width: 34px; height: 34px; background: var(--orange); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .nav-icon svg { width: 19px; height: 19px; fill: white; }
+    .nav-name { font-size: 17px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
+    .nav-back { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--orange); text-decoration: none; transition: gap .2s; }
+    .nav-back:hover { gap: 10px; }
+    .article-hero { max-width: 860px; margin: 0 auto; padding: 56px 24px 0; }
+    .article-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--orange-pale); border: 1px solid var(--orange-mid); color: var(--orange); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; margin-bottom: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .article-title { font-size: clamp(30px, 5vw, 48px); font-weight: 900; letter-spacing: -1.5px; color: var(--text); line-height: 1.1; margin-bottom: 16px; }
+    .article-subtitle { font-size: 18px; color: var(--gray); font-weight: 400; line-height: 1.7; margin-bottom: 28px; max-width: 640px; }
+    .article-meta { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); margin-bottom: 36px; }
+    .meta-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .meta-info p:first-child { font-size: 14px; font-weight: 600; color: var(--text); }
+    .meta-info p:last-child { font-size: 12px; color: var(--gray); margin-top: 1px; }
+    .article-img { max-width: 860px; margin: 0 auto 48px; border-radius: 20px; overflow: hidden; height: 420px; box-shadow: var(--shadow-md); }
+    .article-img img { width: 100%; height: 100%; object-fit: cover; }
+    .article-body { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .article-body h2 { font-size: 24px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; margin: 40px 0 14px; }
+    .article-body h3 { font-size: 18px; font-weight: 700; color: var(--text); margin: 28px 0 10px; }
+    .article-body p { font-size: 16px; color: var(--charcoal); line-height: 1.85; font-weight: 400; margin-bottom: 18px; }
+    .article-body ul, .article-body ol { padding-left: 0; margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px; list-style: none; }
+    .article-body ul li, .article-body ol li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--charcoal); line-height: 1.7; }
+    .article-body ul li::before { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; background: var(--orange-pale); border-radius: 50%; border: 1px solid var(--orange-mid); background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5L4.2 7L8 3' stroke='%23F87141' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; }
+    .article-body ol { counter-reset: step; }
+    .article-body ol li::before { counter-increment: step; content: counter(step); width: 26px; height: 26px; flex-shrink: 0; margin-top: 0; background: var(--orange); color: white; border-radius: 8px; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .tip-box { background: var(--orange-pale); border: 1px solid var(--orange-mid); border-radius: 16px; padding: 20px 24px; margin: 28px 0; }
+    .tip-box p { font-size: 14px; color: var(--charcoal); margin: 0; line-height: 1.7; }
+    .tip-box strong { color: var(--orange); }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 28px 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--gray-mid); }
+    .compare-table th { background: var(--charcoal); color: white; padding: 14px 16px; text-align: left; font-size: 13px; font-weight: 700; }
+    .compare-table td { padding: 13px 16px; font-size: 14px; color: var(--charcoal); border-bottom: 1px solid var(--gray-mid); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:nth-child(even) td { background: var(--gray-light); }
+    .td-ok { color: #1A7A35; font-weight: 600; }
+    .td-no { color: #9B1C1C; font-weight: 600; }
+    .divider { height: 1px; background: var(--gray-mid); margin: 36px 0; }
+    .article-cta { background: var(--orange); border-radius: 20px; padding: 36px; text-align: center; margin: 48px 0; }
+    .article-cta h3 { font-size: 22px; font-weight: 800; color: white; margin-bottom: 10px; }
+    .article-cta p { font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 20px; line-height: 1.6; }
+    .btn-cta { display: inline-block; padding: 13px 32px; background: white; color: var(--orange); border-radius: 9999px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 800; text-decoration: none; transition: transform .2s; }
+    .btn-cta:hover { transform: translateY(-2px); }
+    .related { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+    .related h2 { font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .related-card { background: var(--gray-light); border: 1px solid var(--gray-mid); border-radius: 16px; overflow: hidden; text-decoration: none; transition: box-shadow .2s, transform .2s; }
+    .related-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .related-card img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .related-card-body { padding: 14px 16px; }
+    .related-card-tag { font-size: 10px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .related-card h3 { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.4; }
+    @media (max-width: 640px) { nav { padding: 0 20px; } .article-img { height: 260px; border-radius: 12px; margin: 0 16px 32px; } .related-grid { grid-template-columns: 1fr; } .compare-table { font-size: 12px; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../singular_prototipods.html" class="nav-brand">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><ellipse cx="6" cy="7" rx="2.2" ry="3"/><ellipse cx="11" cy="5" rx="1.8" ry="2.5"/><ellipse cx="16" cy="6" rx="1.8" ry="2.5"/><ellipse cx="19.5" cy="10" rx="1.8" ry="2.5"/><path d="M12 11c-4 0-7 3-5.5 7.5C7.5 21 10 21.5 12 21.5s4.5-.5 5.5-3C19 14 16 11 12 11z"/></svg>
+    </div>
+    <span class="nav-name">Singular Pets</span>
+  </a>
+  <a href="../singular_prototipods.html#blog" class="nav-back">← Volver al blog</a>
+</nav>
+
+<div class="article-hero">
+  <span class="article-tag">🛡️ Tecnología</span>
+  <h1 class="article-title">Cómo el QR/NFC protege a tu mascota</h1>
+  <p class="article-subtitle">Entender la diferencia entre el microchip y la placa QR/NFC puede ayudarte a tomar la mejor decisión para la seguridad de tu mascota.</p>
+  <div class="article-meta">
+    <div class="meta-avatar">🐾</div>
+    <div class="meta-info">
+      <p>Equipo Singular Pets</p>
+      <p>5 de mayo, 2026 · 6 min de lectura</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-img">
+  <img src="img/servicios.png" alt="Placa QR NFC mascota" onerror="this.parentElement.style.background='#FEF0E9'">
+</div>
+
+<div class="article-body">
+
+  <p>Cuando pensamos en identificar a una mascota, lo primero que viene a la mente es el microchip. Durante décadas fue la única opción confiable. Pero hoy, la tecnología QR y NFC ha cambiado el juego completamente — y entender cómo funciona puede hacer la diferencia si tu mascota alguna vez se pierde.</p>
+
+  <h2>¿Qué es un código QR en una placa para mascotas?</h2>
+  <p>Un código QR (Quick Response) es un código de barras bidimensional que almacena información y puede ser leído por cualquier cámara de celular. En el contexto de mascotas, la placa QR no almacena la información directamente — funciona como un enlace que dirige al perfil digital de tu mascota en la nube.</p>
+
+  <p>Cuando alguien escanea la placa de tu mascota, su celular abre inmediatamente una página web con toda la información de contacto y datos relevantes. No necesita instalar ninguna aplicación.</p>
+
+  <div class="tip-box">
+    <p><strong>💡 ¿Sabías que?</strong> El 96% de los celulares modernos pueden leer códigos QR directamente desde la cámara nativa, sin necesidad de apps adicionales. Esto hace que la placa QR sea accesible para prácticamente cualquier persona.</p>
+  </div>
+
+  <h2>¿Qué es NFC y cómo funciona?</h2>
+  <p>NFC (Near Field Communication) es una tecnología de comunicación inalámbrica de corto alcance. Funciona acercando el celular a la placa — en menos de un segundo, el teléfono detecta el chip y abre automáticamente el perfil digital de la mascota.</p>
+
+  <p>Es aún más fácil que el QR porque no requiere sacar la cámara ni enfocar — simplemente acercas el teléfono. La mayoría de smartphones modernos (iPhone desde el 7, Android desde 2015) tienen NFC incorporado.</p>
+
+  <h2>QR vs NFC vs Microchip: comparación completa</h2>
+
+  <table class="compare-table">
+    <tr>
+      <th>Característica</th>
+      <th>Placa QR</th>
+      <th>Placa NFC</th>
+      <th>Microchip</th>
+    </tr>
+    <tr>
+      <td>¿Requiere app?</td>
+      <td class="td-ok">No</td>
+      <td class="td-ok">No</td>
+      <td class="td-no">Sí (lector especial)</td>
+    </tr>
+    <tr>
+      <td>¿Cualquiera puede usar?</td>
+      <td class="td-ok">Sí</td>
+      <td class="td-ok">Sí</td>
+      <td class="td-no">Solo veterinarios</td>
+    </tr>
+    <tr>
+      <td>¿Info actualizable?</td>
+      <td class="td-ok">Sí, en tiempo real</td>
+      <td class="td-ok">Sí, en tiempo real</td>
+      <td class="td-no">No</td>
+    </tr>
+    <tr>
+      <td>¿Contacto inmediato?</td>
+      <td class="td-ok">Sí</td>
+      <td class="td-ok">Sí</td>
+      <td class="td-no">No (proceso largo)</td>
+    </tr>
+    <tr>
+      <td>¿Identificación oficial?</td>
+      <td class="td-no">No</td>
+      <td class="td-no">No</td>
+      <td class="td-ok">Sí</td>
+    </tr>
+    <tr>
+      <td>Costo</td>
+      <td>Bajo</td>
+      <td>Bajo-Medio</td>
+      <td>Medio-Alto</td>
+    </tr>
+  </table>
+
+  <h2>La gran ventaja: cualquier persona puede ayudar</h2>
+  <p>Esta es la diferencia más importante. Con un microchip tradicional, si alguien encuentra a tu mascota en la calle, necesita:</p>
+
+  <ol>
+    <li>Saber que la mascota tiene microchip.</li>
+    <li>Llevarla a una veterinaria o refugio con lector de chips.</li>
+    <li>Esperar a que lean el chip y busquen en la base de datos.</li>
+    <li>Que la información en la base de datos esté actualizada.</li>
+  </ol>
+
+  <p>Todo ese proceso puede tomar horas o días, y requiere que la persona que encontró a tu mascota tenga tiempo, transporte y voluntad de hacer ese recorrido.</p>
+
+  <p>Con una placa QR/NFC, el proceso es:</p>
+
+  <ol>
+    <li>La persona escanea la placa con su celular.</li>
+    <li>Inmediatamente aparece tu número de teléfono y WhatsApp.</li>
+    <li>Te contacta al instante.</li>
+  </ol>
+
+  <div class="tip-box">
+    <p><strong>🐾 Caso real:</strong> En promedio, las mascotas con placa QR activa son devueltas a sus dueños en menos de 2 horas cuando alguien las encuentra. Con microchip solo, el proceso puede tomar 24-48 horas o más.</p>
+  </div>
+
+  <h2>¿Reemplaza el microchip?</h2>
+  <p>No, y es importante entenderlo bien. La placa QR/NFC y el microchip cumplen funciones complementarias, no opuestas:</p>
+
+  <ul>
+    <li><strong>Placa QR/NFC:</strong> identificación inmediata y contacto directo para cualquier persona que encuentre a tu mascota. Actualizable en tiempo real.</li>
+    <li><strong>Microchip:</strong> identificación oficial permanente, utilizada por veterinarias, refugios y autoridades. No se puede perder ni alterar.</li>
+  </ul>
+
+  <p>La recomendación de los expertos en bienestar animal es usar <strong>ambos sistemas juntos</strong>. El microchip como identificación oficial de respaldo, y la placa QR/NFC como la primera línea de contacto rápido.</p>
+
+  <h2>¿Qué pasa si la placa se daña o se pierde?</h2>
+  <p>Esta es una ventaja clave de los sistemas digitales: el perfil de tu mascota vive en la nube, no en la placa física. Si la placa se daña, se pierde o se borra el QR, simplemente solicitas una nueva placa y la vinculas al mismo perfil digital — todos los datos se mantienen intactos.</p>
+
+  <div class="divider"></div>
+
+  <h2>¿Cómo elegir entre QR y NFC?</h2>
+  <p>Ambas tecnologías son efectivas. La elección depende principalmente de tu preferencia y el estilo de vida de tu mascota:</p>
+
+  <ul>
+    <li><strong>Placa QR:</strong> funciona con absolutamente cualquier celular con cámara. Ideal si quieres la máxima compatibilidad.</li>
+    <li><strong>Placa NFC:</strong> más discreta, no tiene código visible y funciona con solo acercar el teléfono. Ideal para mascotas activas donde el QR puede desgastarse.</li>
+    <li><strong>Placa QR + NFC (combo):</strong> la mejor opción. Ofrece doble protección: si uno falla, el otro funciona.</li>
+  </ul>
+
+  <div class="article-cta">
+    <h3>🐾 Dale a tu mascota la protección que merece</h3>
+    <p>Placa QR/NFC + perfil digital en la nube. Cualquier persona puede contactarte al instante. Sin apps, sin complicaciones.</p>
+    <a href="../../inicio_sesion/singular_inicio_sesion.html" class="btn-cta">Empezar gratis →</a>
+  </div>
+
+</div>
+
+<div class="related">
+  <h2>Artículos relacionados</h2>
+  <div class="related-grid">
+    <a href="articulo-perdida.html" class="related-card">
+      <img src="img/consejos.jpg" alt="Mascota perdida" onerror="this.style.display='none'">
+      <div class="related-card-body">
+        <div class="related-card-tag">Emergencias</div>
+        <h3>¿Qué hacer si tu mascota se pierde?</h3>
+      </div>
+    </a>
+    <a href="articulo-datos.html" class="related-card">
+      <img src="img/como_funciona.jpg" alt="Actualizar datos" onerror="this.style.display='none'">
+      <div class="related-card-body">
+        <div class="related-card-tag">Consejos</div>
+        <h3>Importancia de actualizar los datos de tu mascota</h3>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
