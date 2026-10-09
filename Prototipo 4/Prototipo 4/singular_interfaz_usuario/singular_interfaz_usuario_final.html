@@ -183,6 +183,26 @@
     .toast.err{background:var(--danger);}
     @keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
+    /* PRÓXIMAMENTE */
+    .soon-tag{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:9999px;background:var(--orange-pale);color:var(--orange-dark);font-size:12px;font-weight:600;white-space:nowrap;}
+    .soon-block{border-top:1px solid var(--gray-mid);padding-top:16px;margin-top:16px;}
+    .soon-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .soon-notif{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px dashed var(--orange-mid);border-radius:14px;background:var(--orange-pale);}
+    .soon-notif-icon{color:var(--orange);font-size:20px;display:flex;flex-shrink:0;}
+    .soon-notif-body{display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--charcoal);}
+    .soon-link{color:var(--orange-dark);font-weight:600;text-decoration:underline;opacity:.7;cursor:not-allowed;}
+    .soon-note{display:flex;gap:6px;align-items:flex-start;font-size:12px;color:var(--gray);line-height:1.5;margin-top:10px;}
+    .soon-table-wrap{overflow-x:auto;border:1px solid var(--gray-mid);border-radius:12px;}
+    .soon-table{width:100%;border-collapse:collapse;font-size:13px;min-width:420px;}
+    .soon-table th,.soon-table td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--gray-mid);}
+    .soon-table th{font-size:11px;color:var(--gray);font-weight:600;background:var(--gray-light);}
+    .soon-table tbody tr:last-child td{border-bottom:none;}
+    .soon-table td{color:var(--charcoal);}
+    .soon-fieldset{border:none;min-width:0;}
+    .soon-radio{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;margin-bottom:8px;border:1px solid var(--gray-mid);border-radius:12px;background:var(--gray-light);font-size:14px;color:var(--gray);cursor:not-allowed;}
+    .soon-radio input{width:20px;height:20px;flex-shrink:0;}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
     @media(max-width:980px){.main-grid{grid-template-columns:1fr;}.hero-banner-content{flex-direction:column;align-items:flex-start;gap:14px;}nav{padding:0 20px;}.wrap{padding:20px 20px 48px;}}
     @media(max-width:600px){.pets-grid{grid-template-columns:1fr;}.hero-stats{flex-wrap:wrap;}.form-row{grid-template-columns:1fr;}}
     /* Celulares y pantallas táctiles */
@@ -289,6 +309,53 @@
     </div>
     <p class="card-desc">Recordatorios de vacunas, desparasitación y controles.</p>
     <div id="alerts">
+    </div>
+  </div>
+
+  <!-- PRÓXIMAMENTE: vistas previas de funciones futuras (datos de ejemplo, sin backend) -->
+  <div class="card" id="proximamente" style="margin-bottom:20px;">
+    <div class="card-head">
+      <h2 class="card-title"><span class="card-title-icon"><span data-icon="bell"></span></span>Funciones futuras</h2>
+      <span class="soon-tag"><span data-icon="clock"></span>Próximamente</span>
+    </div>
+    <p class="card-desc">Así se verán estas funciones cuando lleguen. Son vistas de muestra con datos de ejemplo: todavía no están activas.</p>
+
+    <div class="soon-block">
+      <h3 class="soon-title">Aviso al escanear la placa</h3>
+      <div class="soon-notif" aria-label="Ejemplo de notificación">
+        <div class="soon-notif-icon"><span data-icon="bell"></span></div>
+        <div class="soon-notif-body">
+          <strong>Escanearon la placa de Fiodor</strong>
+          <span>Hoy 4:20 p. m. · <span class="soon-link" aria-disabled="true">Ver ubicación</span></span>
+        </div>
+      </div>
+      <p class="soon-note"><span data-icon="info"></span>Esta función llegará con la próxima versión del sistema.</p>
+    </div>
+
+    <div class="soon-block">
+      <h3 class="soon-title">Historial de escaneos <span class="tag tag-neutral">Ejemplo</span></h3>
+      <div class="soon-table-wrap">
+        <table class="soon-table">
+          <caption class="sr-only">Ejemplo de historial de escaneos con datos ficticios</caption>
+          <thead><tr><th scope="col">Fecha</th><th scope="col">Lugar</th><th scope="col">Ubicación</th></tr></thead>
+          <tbody>
+            <tr><td>12 may. 2026 · 4:20 p. m.</td><td>Parque de ejemplo</td><td>Ciudad de ejemplo</td></tr>
+            <tr><td>10 may. 2026 · 9:05 a. m.</td><td>Calle de ejemplo</td><td>Ciudad de ejemplo</td></tr>
+            <tr><td>3 may. 2026 · 6:40 p. m.</td><td>Barrio de ejemplo</td><td>Ciudad de ejemplo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="soon-block">
+      <fieldset class="soon-fieldset" disabled>
+        <legend class="soon-title">Privacidad del teléfono</legend>
+        <p class="soon-note" style="margin-top:0;">Elegirás cuándo se muestra tu número en el perfil público.</p>
+        <label class="soon-radio" for="priv-siempre"><input type="radio" id="priv-siempre" name="priv-telefono" disabled><span>Siempre visible</span></label>
+        <label class="soon-radio" for="priv-perdida"><input type="radio" id="priv-perdida" name="priv-telefono" disabled><span>Solo en modo perdida</span></label>
+        <label class="soon-radio" for="priv-nunca"><input type="radio" id="priv-nunca" name="priv-telefono" disabled><span>Nunca</span></label>
+      </fieldset>
+      <p class="soon-note"><span data-icon="info"></span>Estas opciones aún no cambian nada en tu perfil.</p>
     </div>
   </div>
 

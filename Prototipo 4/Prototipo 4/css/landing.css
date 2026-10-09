@@ -234,9 +234,9 @@ section { padding: 56px 0; }
 
 /* PILARES */
 .pilares-bg { background: var(--gray-light); }
-.pilares-header, .productos-header, .testimonios-header, .blog-header { text-align: center; margin-bottom: 32px; }
+.pilares-header, .productos-header, .blog-header { text-align: center; margin-bottom: 32px; }
 .pilares-header .section-sub, .productos-header .section-sub,
-.testimonios-header .section-sub, .blog-header .section-sub { margin: 0 auto; }
+.blog-header .section-sub { margin: 0 auto; }
 .pilares-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
 .pilar-card {
   background: var(--white); border: 1px solid var(--gray-mid);
@@ -252,6 +252,18 @@ section { padding: 56px 0; }
 }
 .pilar-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .pilar-card p { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+/* PLACA SINGULAR */
+.placa-bg { background: var(--orange-pale); }
+.placa-fotos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 12px; }
+.placa-foto {
+  aspect-ratio: 4 / 3; border: 2px dashed var(--orange-mid); border-radius: 20px;
+  background: var(--white); color: var(--orange);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  font-size: 32px;
+}
+.placa-foto p { font-size: 13px; color: var(--gray); }
+.placa-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
 
 /* CÓMO FUNCIONA */
 .como-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; }
@@ -321,33 +333,6 @@ section { padding: 56px 0; }
 }
 .btn-producto-primary { background: var(--orange); color: #fff; box-shadow: 0 4px 14px rgba(248,113,65,0.28); }
 .btn-producto-ghost { background: var(--gray-light); color: var(--text); border: 1.5px solid var(--gray-mid) !important; }
-
-/* TESTIMONIOS (carrusel en celular) */
-.testimonios-grid {
-  display: flex; gap: 14px;
-  overflow-x: auto; scroll-snap-type: x mandatory;
-  margin: 0 -20px; padding: 4px 20px 18px; scroll-padding: 0 20px;
-  -webkit-overflow-scrolling: touch; scrollbar-width: none;
-}
-.testimonios-grid::-webkit-scrollbar { display: none; }
-.testimonio {
-  flex: 0 0 84%; scroll-snap-align: start;
-  background: var(--white); border: 1px solid var(--gray-mid);
-  border-radius: 22px; padding: 22px;
-  box-shadow: var(--shadow-sm);
-  display: flex; flex-direction: column;
-}
-.stars { color: var(--orange); font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
-.testimonio blockquote { font-size: 15px; color: var(--charcoal); line-height: 1.7; font-style: italic; margin-bottom: 18px; flex: 1; }
-.testimonio-author { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--gray-mid); }
-.author-avatar {
-  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
-  background: var(--orange-pale); overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 800; color: var(--orange);
-}
-.author-name { font-size: 14px; font-weight: 700; color: var(--text); }
-.author-pet { font-size: 12px; color: var(--gray); margin-top: 1px; }
 
 /* NOSOTROS */
 .nosotros-bg { background: var(--gray-light); }
@@ -503,6 +488,7 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
    TABLET  (641px en adelante)
    ========================================================= */
 @media (min-width: 641px) {
+  .placa-fotos, .placa-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   section { padding: 72px 0; }
   .container { padding: 0 24px; }
   .hero { padding: 48px 24px 0; gap: 44px; }
@@ -519,9 +505,7 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
   .gallery-img { flex: none; height: 190px; }
 
   .section-title { font-size: clamp(30px, 5vw, 40px); }
-  .pilares-header, .productos-header, .testimonios-header, .blog-header { margin-bottom: 44px; }
-  .testimonios-grid { margin: 0 -24px; padding: 4px 24px 18px; scroll-padding: 0 24px; }
-  .testimonio { flex-basis: 46%; }
+  .pilares-header, .productos-header, .blog-header { margin-bottom: 44px; }
   .form-row-2 { grid-template-columns: 1fr 1fr; gap: 12px; }
   .contacto-form { padding: 32px; }
   .cta-final { padding: 72px 24px; }
@@ -584,9 +568,12 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
   .section-tag { margin-bottom: 16px; }
   .section-title { font-size: clamp(32px, 4vw, 48px); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px; }
   .section-sub { font-size: 16px; line-height: 1.7; }
-  .pilares-header, .productos-header, .testimonios-header, .blog-header { margin-bottom: 56px; }
+  .pilares-header, .productos-header, .blog-header { margin-bottom: 56px; }
 
   .pilares-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .placa-fotos { grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .placa-foto { aspect-ratio: 16 / 9; }
+  .placa-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .pilar-card { display: block; padding: 32px 28px; transition: box-shadow .25s, transform .25s; }
   .pilar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
   .pilar-icon { width: 52px; height: 52px; margin-bottom: 20px; }
@@ -619,15 +606,6 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
   .btn-producto { min-height: 0; display: block; font-size: 14px; border-radius: 12px; transition: background .2s, transform .15s; }
   .btn-producto-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
   .btn-producto-ghost:hover { background: var(--gray-mid); }
-
-  .testimonios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0; padding: 0; overflow: visible; }
-  .testimonio { flex: none; padding: 28px; box-shadow: none; border-radius: 20px; transition: box-shadow .25s; }
-  .testimonio:hover { box-shadow: var(--shadow-md); }
-  .stars { font-size: 14px; margin-bottom: 16px; }
-  .testimonio blockquote { font-size: 14px; line-height: 1.75; margin-bottom: 20px; flex: none; }
-  .author-avatar { width: 40px; height: 40px; }
-  .author-name { font-size: 13px; }
-  .author-pet { font-size: 11px; }
 
   .nosotros-text > p { line-height: 1.8; margin-bottom: 18px; }
   .nosotros-stats { gap: 12px; margin-top: 32px; }
