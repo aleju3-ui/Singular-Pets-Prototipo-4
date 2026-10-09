@@ -3,14 +3,14 @@
    Mobile first: base = celular, @media (min-width: 721px) = PC
    ========================================================= */
 
-/* ── Layout general ── */
+/* Layout general */
 .wrap {
   max-width: 900px;
   margin: 0 auto;
   padding: var(--space-5) var(--space-4) var(--space-8);
 }
 
-/* ── Tarjeta principal ── */
+/* Tarjeta principal */
 .profile-card {
   background: var(--white);
   border: 1px solid var(--gray-mid);
@@ -25,7 +25,7 @@
   grid-template-columns: minmax(0, 1fr);   /* evita que el contenido empuje la columna */
 }
 
-/* ── Foto de la mascota ── */
+/* Foto de la mascota */
 .pet-photo-wrap {
   position: relative;
   background: var(--orange-pale);
@@ -50,7 +50,7 @@
   font-size: 72px;
 }
 
-/* ── Panel de información ── */
+/* Panel de información */
 .profile-info {
   min-width: 0;
   padding: var(--space-6) var(--space-5);
@@ -83,7 +83,7 @@
 }
 .pet-meta-row strong { color: var(--text); font-weight: 600; }
 
-/* ── Estado ── */
+/* Estado */
 .status-box {
   display: flex; align-items: center; gap: 10px;
   padding: 12px 16px;
@@ -102,7 +102,7 @@
   color: var(--gray); font-weight: 400; margin-top: 2px;
 }
 
-/* ── Ficha técnica ── */
+/* Ficha técnica */
 .ficha-tecnica {
   display: flex; flex-direction: column; gap: 12px;
   padding-top: 18px;
@@ -139,7 +139,7 @@
 }
 .btn-auxilio:hover { background: #D6EAFF; }
 
-/* ── Botones de acción (llamar, WhatsApp, ubicación, maps) ── */
+/* Botones de acción (llamar, WhatsApp, ubicación, maps) */
 .action-btns { display: flex; flex-direction: column; gap: 10px; }
 
 .btn-action {
@@ -193,7 +193,7 @@
 .toast.ok    { background: var(--ok-bg); color: var(--ok-text); border: 1px solid rgba(52, 199, 89, 0.2); }
 .toast.error { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(255, 59, 48, 0.18); }
 
-/* ── Banner de rescate ── */
+/* Banner de rescate */
 .rescue-banner {
   position: relative;
   height: 160px;
@@ -221,7 +221,7 @@
   max-width: 320px; line-height: 1.6;
 }
 
-/* ── Detalles inferiores ── */
+/* Detalles inferiores */
 .profile-details {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -241,7 +241,7 @@
   font-weight: 400; line-height: 1.7;
 }
 
-/* ── Pie de página ── */
+/* Pie de página */
 .qr-footer { text-align: center; margin-top: var(--space-6); }
 .qr-footer p { font-size: 12px; color: var(--gray); font-weight: 400; }
 .qr-footer strong { color: var(--orange); font-weight: 700; }
@@ -261,7 +261,7 @@
   display: inline-block; padding: 8px 0;
 }
 
-/* ── Spinner inline ── */
+/* Spinner inline */
 .spinner-inline {
   width: 16px; height: 16px;
   border: 2px solid rgba(0, 0, 0, 0.15);
@@ -272,7 +272,7 @@
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Modal de acceso ── */
+/* Modal de acceso */
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0, 0, 0, 0.6);
@@ -337,7 +337,7 @@
   margin-top: var(--space-2);
 }
 
-/* ── Modo edición (tutor con sesión) ── */
+/* Modo edición (tutor con sesión) */
 .modo-edicion-badge {
   display: inline-block;
   background: var(--orange-pale); color: var(--orange);
@@ -357,7 +357,7 @@
   background: var(--danger-bg); color: var(--danger); border-color: #FFCACA;
 }
 
-/* ── Estado "mascota perdida" ── */
+/* Estado "mascota perdida" */
 .eyebrow-perdido { display: none; }
 body.estado-perdido .eyebrow-normal { display: none; }
 body.estado-perdido .eyebrow-perdido { display: inline; color: var(--danger); }
@@ -437,3 +437,10 @@ body.estado-perdido .status-box p { color: var(--danger); }
   .modal-close:hover { background: var(--gray-light); color: var(--text); }
   .btn-logout:hover { background: var(--gray-mid); }
 }
+
+/* Íconos */
+.pet-photo-placeholder { color: var(--orange); }
+.rescue-note .icon { color: var(--orange); margin-right: 4px; }
+.eyebrow-perdido .icon { margin-right: 2px; }
+.qr-footer-cta .icon { margin-right: 6px; }
+.btn-auxilio .icon { margin-right: 6px; }

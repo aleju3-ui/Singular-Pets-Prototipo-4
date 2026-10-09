@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Singular Pets — Alertas Médicas</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/icons.css"/>
+  <script src="../js/icons.js"></script>
   <style>
     :root {
       --orange:#F87141; --orange-dark:#E05E2A; --orange-pale:#FEF0E9; --orange-mid:#FDDDCC;
@@ -32,7 +34,8 @@
 
     /* HEADER */
     .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
-    .page-title{font-size:28px;font-weight:800;color:var(--text);letter-spacing:-0.5px;}
+    .page-title{display:flex;align-items:center;gap:10px;font-size:28px;font-weight:800;color:var(--text);letter-spacing:-0.5px;}
+    .page-title .icon{color:var(--orange);}
     .page-subtitle{font-size:14px;color:var(--gray);margin-top:4px;}
     .btn-add-alert{display:flex;align-items:center;gap:8px;padding:12px 20px;background:var(--orange);color:white;border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s;box-shadow:0 4px 14px rgba(248,113,65,0.28);}
     .btn-add-alert:hover{background:var(--orange-dark);}
@@ -41,9 +44,9 @@
     .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
     .summary-card{background:var(--white);border:1px solid var(--gray-mid);border-radius:16px;padding:18px 20px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-sm);}
     .summary-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-    .summary-icon.ok{background:var(--ok-bg);}
-    .summary-icon.warn{background:var(--warn-bg);}
-    .summary-icon.danger{background:var(--danger-bg);}
+    .summary-icon.ok{background:var(--ok-bg);color:var(--ok-text);}
+    .summary-icon.warn{background:var(--warn-bg);color:var(--warn-text);}
+    .summary-icon.danger{background:var(--danger-bg);color:var(--danger-text);}
     .summary-num{font-size:26px;font-weight:800;line-height:1;}
     .summary-num.ok{color:var(--ok-text);}
     .summary-num.warn{color:var(--warn-text);}
@@ -71,9 +74,9 @@
     .alert-indicator.danger{background:var(--danger);}
 
     .alert-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-    .alert-icon.ok{background:rgba(52,199,89,0.12);}
-    .alert-icon.warn{background:rgba(248,113,65,0.12);}
-    .alert-icon.danger{background:rgba(255,59,48,0.1);}
+    .alert-icon.ok{background:rgba(52,199,89,0.12);color:var(--ok-text);}
+    .alert-icon.warn{background:rgba(248,113,65,0.12);color:var(--orange);}
+    .alert-icon.danger{background:rgba(255,59,48,0.1);color:var(--danger-text);}
 
     .alert-info{flex:1;min-width:0;}
     .alert-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px;}
@@ -86,14 +89,14 @@
     .alert-badge.danger{background:var(--danger-bg);color:var(--danger-text);}
 
     .alert-actions{display:flex;gap:6px;flex-shrink:0;}
-    .btn-alert{padding:7px 12px;border:1.5px solid var(--gray-mid);border-radius:9999px;background:var(--white);color:var(--charcoal);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;}
+    .btn-alert{display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border:1.5px solid var(--gray-mid);border-radius:9999px;background:var(--white);color:var(--charcoal);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;}
     .btn-alert:hover{border-color:var(--orange);color:var(--orange);}
     .btn-alert.del{color:var(--danger-text);border-color:rgba(255,59,48,0.2);}
     .btn-alert.del:hover{background:var(--danger-bg);}
 
     /* EMPTY STATE */
     .empty-state{text-align:center;padding:60px 20px;}
-    .empty-state .emoji{font-size:48px;margin-bottom:16px;}
+    .empty-state .empty-icon{font-size:48px;margin-bottom:16px;color:var(--orange-mid);display:flex;justify-content:center;}
     .empty-state h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;}
     .empty-state p{font-size:14px;color:var(--gray);}
 
@@ -122,12 +125,12 @@
     .btn-primary:hover{background:var(--orange-dark);}
     .btn-ghost{padding:13px 20px;background:var(--gray-light);color:var(--charcoal);border:1px solid var(--gray-mid);border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
     .btn-ghost:hover{background:var(--gray-mid);}
-    .btn-delete{padding:13px 16px;background:var(--danger-bg);color:var(--danger-text);border:1px solid rgba(255,59,48,0.2);border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
+    .btn-delete{display:inline-flex;align-items:center;padding:13px 16px;background:var(--danger-bg);color:var(--danger-text);border:1px solid rgba(255,59,48,0.2);border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
 
     /* BANNER ALERTA URGENTE */
     .banner-urgente{background:var(--danger-bg);border:1px solid rgba(255,59,48,0.25);border-radius:16px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px;}
     .banner-urgente.hidden{display:none;}
-    .banner-urgente-icon{font-size:24px;flex-shrink:0;}
+    .banner-urgente-icon{font-size:24px;flex-shrink:0;color:var(--danger-text);display:flex;}
     .banner-urgente p{font-size:14px;color:var(--danger-text);font-weight:500;line-height:1.5;}
     .banner-urgente strong{font-weight:700;}
 
@@ -145,6 +148,25 @@
       .summary-grid{grid-template-columns:1fr;}
       .form-row{grid-template-columns:1fr;}
       .alert-actions{flex-direction:column;}
+    }
+    /* Celulares y pantallas táctiles */
+    @media(max-width:640px){
+      .page-header{flex-wrap:wrap;gap:14px;}
+      .page-title{font-size:24px;}
+      .btn-add-alert{width:100%;justify-content:center;}
+      .alert-card{flex-wrap:wrap;}
+      .alert-indicator{display:none;}
+      .alert-info{flex:1 1 calc(100% - 64px);}
+      .alert-actions{flex-direction:row;width:100%;justify-content:flex-end;}
+      .toast-wrap{left:16px;right:16px;bottom:16px;}
+      .modal-footer{flex-wrap:wrap;}
+      .btn-primary{flex:1 1 100%;order:-1;}
+    }
+    @media(pointer:coarse){
+      .form-input,.form-select{font-size:16px;}
+      .btn-alert{min-height:40px;padding:8px 14px;}
+      .filter-btn{min-height:40px;}
+      .modal-close{width:40px;height:40px;}
     }
   </style>
 </head>
@@ -165,7 +187,7 @@
   <!-- HEADER -->
   <div class="page-header">
     <div>
-      <h1 class="page-title">🩺 Alertas médicas</h1>
+      <h1 class="page-title"><span data-icon="medical"></span> Alertas médicas</h1>
       <p class="page-subtitle">Recordatorios de vacunas, desparasitación y controles veterinarios</p>
     </div>
     <button class="btn-add-alert" onclick="abrirCrear()">
@@ -176,22 +198,22 @@
 
   <!-- BANNER URGENTE -->
   <div class="banner-urgente hidden" id="bannerUrgente">
-    <div class="banner-urgente-icon">🚨</div>
+    <div class="banner-urgente-icon"><span data-icon="alert-circle"></span></div>
     <p id="bannerUrgenteText">Tienes alertas que requieren atención inmediata.</p>
   </div>
 
   <!-- RESUMEN -->
   <div class="summary-grid">
     <div class="summary-card">
-      <div class="summary-icon ok">✅</div>
+      <div class="summary-icon ok"><span data-icon="check-circle"></span></div>
       <div><div class="summary-num ok" id="countOk">0</div><div class="summary-lbl">Al día</div></div>
     </div>
     <div class="summary-card">
-      <div class="summary-icon warn">⚠️</div>
+      <div class="summary-icon warn"><span data-icon="alert"></span></div>
       <div><div class="summary-num warn" id="countWarn">0</div><div class="summary-lbl">Próximas (≤5 días)</div></div>
     </div>
     <div class="summary-card">
-      <div class="summary-icon danger">🔴</div>
+      <div class="summary-icon danger"><span data-icon="alert-circle"></span></div>
       <div><div class="summary-num danger" id="countDanger">0</div><div class="summary-lbl">Vencidas</div></div>
     </div>
   </div>
@@ -210,41 +232,41 @@
 </div>
 
 <!-- MODAL CREAR/EDITAR -->
-<div class="modal-overlay" id="modalAlerta">
+<div class="modal-overlay" id="modalAlerta" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
     <div class="modal-header">
       <h2 class="modal-title" id="modalTitle">Nueva alerta</h2>
-      <button class="modal-close" onclick="cerrarModal()">✕</button>
+      <button class="modal-close" onclick="cerrarModal()" aria-label="Cerrar">✕</button>
     </div>
     <div class="modal-body">
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Mascota *</label>
+          <label class="form-label" for="fMascota">Mascota *</label>
           <select class="form-select" id="fMascota"></select>
         </div>
         <div class="form-group">
-          <label class="form-label">Tipo de alerta *</label>
+          <label class="form-label" for="fTipo">Tipo de alerta *</label>
           <select class="form-select" id="fTipo">
-            <option value="Vacuna">💉 Vacuna</option>
-            <option value="Desparasitación">🪱 Desparasitación</option>
-            <option value="Control veterinario">🩺 Control veterinario</option>
-            <option value="Medicamento">💊 Medicamento</option>
-            <option value="Baño y peluquería">✂️ Baño y peluquería</option>
-            <option value="Otro">📋 Otro</option>
+            <option value="Vacuna">Vacuna</option>
+            <option value="Desparasitación">Desparasitación</option>
+            <option value="Control veterinario">Control veterinario</option>
+            <option value="Medicamento">Medicamento</option>
+            <option value="Baño y peluquería">Baño y peluquería</option>
+            <option value="Otro">Otro</option>
           </select>
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Descripción</label>
+        <label class="form-label" for="fDesc">Descripción</label>
         <input class="form-input" id="fDesc" type="text" placeholder="Ej: Vacuna antirrábica anual">
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Fecha programada *</label>
+          <label class="form-label" for="fFecha">Fecha programada *</label>
           <input class="form-input" id="fFecha" type="date">
         </div>
         <div class="form-group">
-          <label class="form-label">Recordar antes (días)</label>
+          <label class="form-label" for="fRecordar">Recordar antes (días)</label>
           <select class="form-select" id="fRecordar">
             <option value="3">3 días antes</option>
             <option value="5" selected>5 días antes</option>
@@ -254,12 +276,12 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label">Notas adicionales</label>
+        <label class="form-label" for="fNotas">Notas adicionales</label>
         <textarea class="form-input" id="fNotas" placeholder="Ej: Llevar carnet de vacunación..."></textarea>
       </div>
       <div class="modal-footer">
         <button class="btn-ghost" onclick="cerrarModal()">Cancelar</button>
-        <button class="btn-delete" id="btnEliminarAlerta" onclick="eliminarAlerta()" style="display:none">🗑</button>
+        <button class="btn-delete" id="btnEliminarAlerta" onclick="eliminarAlerta()" style="display:none" aria-label="Eliminar alerta"><span data-icon="trash"></span></button>
         <button class="btn-primary" onclick="guardarAlerta()">Guardar alerta</button>
       </div>
     </div>
@@ -268,87 +290,72 @@
 
 <div class="toast-wrap" id="toastWrap"></div>
 
+<script src="../js/utils.js"></script>
 <script>
-// ═══════════════════════════════════════
-// ESTADO
-// ═══════════════════════════════════════
-let alertas = JSON.parse(localStorage.getItem('SP_ALERTAS') || 'null');
-if (!alertas) {
-  alertas = [
-    { id: 1, mascota:'Fiodor', tipo:'Desparasitación', desc:'Desparasitación trimestral', fecha:'2026-05-20', recordar:5, notas:'' },
-    { id: 2, mascota:'Bruno', tipo:'Vacuna', desc:'Vacuna antirrábica anual', fecha:'2026-05-19', recordar:5, notas:'Llevar carnet' },
-    { id: 3, mascota:'Bruno', tipo:'Control veterinario', desc:'Control de rutina', fecha:'2026-06-15', recordar:5, notas:'' },
-    { id: 4, mascota:'Fiodor', tipo:'Medicamento', desc:'Antiparasitario mensual', fecha:'2026-05-30', recordar:3, notas:'' }
-  ];
+// Estado
+let alertas = leerLS('SP_ALERTAS', null);
+if (!Array.isArray(alertas)) {
+  alertas = alertasDemo();
   guardarAlertas();
 }
 
-let pets = JSON.parse(localStorage.getItem('SP_PETS2') || '[]');
+let pets = leerLS('SP_PETS2', []);
 let editId = null;
 let filtroActivo = 'todas';
+let ultimaMascota = null;
 
-function guardarAlertas() { localStorage.setItem('SP_ALERTAS', JSON.stringify(alertas)); }
-
-// ═══════════════════════════════════════
-// CALCULAR ESTADO
-// ═══════════════════════════════════════
-function getEstado(alerta) {
-  const today = new Date(); today.setHours(0,0,0,0);
-  const fecha = new Date(alerta.fecha); fecha.setHours(0,0,0,0);
-  const diff = Math.round((fecha - today) / 86400000);
-
-  if (diff < 0) return { tipo: 'danger', diff, texto: `Vencida hace ${Math.abs(diff)} día${Math.abs(diff)!==1?'s':''}`, emoji: '🔴' };
-  if (diff === 0) return { tipo: 'warn', diff, texto: 'Vence hoy', emoji: '🟠' };
-  if (diff <= alerta.recordar) return { tipo: 'warn', diff, texto: `Faltan ${diff} día${diff!==1?'s':''}`, emoji: '🟠' };
-  return { tipo: 'ok', diff, texto: `Faltan ${diff} días`, emoji: '🟢' };
+// Devuelve false si el navegador no tiene espacio
+function guardarAlertas() {
+  try {
+    localStorage.setItem('SP_ALERTAS', JSON.stringify(alertas));
+    return true;
+  } catch (e) {
+    showToast('No se pudo guardar. Revisa el espacio del navegador.', 'err');
+    return false;
+  }
 }
 
 function formatFecha(f) {
-  return new Date(f).toLocaleDateString('es-CO', { year:'numeric', month:'long', day:'numeric' });
+  return parseFecha(f).toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function getTipoEmoji(tipo) {
-  const map = { 'Vacuna':'💉', 'Desparasitación':'🪱', 'Control veterinario':'🩺', 'Medicamento':'💊', 'Baño y peluquería':'✂️', 'Otro':'📋' };
-  return map[tipo] || '📋';
+function getTipoIcon(tipo) {
+  const map = { 'Vacuna': 'syringe', 'Desparasitación': 'shield', 'Control veterinario': 'medical', 'Medicamento': 'pill', 'Baño y peluquería': 'scissors', 'Otro': 'clipboard' };
+  return map[tipo] || 'clipboard';
 }
 
-// ═══════════════════════════════════════
-// RENDER
-// ═══════════════════════════════════════
+// Renderizado
 function render() {
   const list = document.getElementById('alertsList');
 
-  // Ordenar: danger primero, luego warn, luego ok, por fecha
+  // Orden: vencidas, próximas y al día; dentro de cada grupo, por fecha
+  const orden = { danger: 0, warn: 1, ok: 2 };
   const sorted = [...alertas].sort((a, b) => {
-    const ea = getEstado(a), eb = getEstado(b);
-    const order = { danger: 0, warn: 1, ok: 2 };
-    if (order[ea.tipo] !== order[eb.tipo]) return order[ea.tipo] - order[eb.tipo];
-    return new Date(a.fecha) - new Date(b.fecha);
+    const ea = calcularEstadoAlerta(a), eb = calcularEstadoAlerta(b);
+    if (orden[ea.tipo] !== orden[eb.tipo]) return orden[ea.tipo] - orden[eb.tipo];
+    return parseFecha(a.fecha) - parseFecha(b.fecha);
   });
 
-  // Filtrar
-  const filtered = filtroActivo === 'todas' ? sorted : sorted.filter(a => getEstado(a).tipo === filtroActivo);
+  const filtered = filtroActivo === 'todas' ? sorted : sorted.filter(a => calcularEstadoAlerta(a).tipo === filtroActivo);
 
   // Contadores
   let cOk = 0, cWarn = 0, cDanger = 0;
   alertas.forEach(a => {
-    const e = getEstado(a);
-    if (e.tipo === 'ok') cOk++;
-    else if (e.tipo === 'warn') cWarn++;
-    else cDanger++;
+    const t = calcularEstadoAlerta(a).tipo;
+    if (t === 'ok') cOk++; else if (t === 'warn') cWarn++; else cDanger++;
   });
   document.getElementById('countOk').textContent = cOk;
   document.getElementById('countWarn').textContent = cWarn;
   document.getElementById('countDanger').textContent = cDanger;
 
-  // Banner urgente
+  // Banner de atención
   const banner = document.getElementById('bannerUrgente');
   if (cDanger > 0 || cWarn > 0) {
     banner.classList.remove('hidden');
-    const msgs = [];
-    if (cDanger > 0) msgs.push(`<strong>${cDanger} alerta${cDanger!==1?'s':''} vencida${cDanger!==1?'s':''}</strong>`);
-    if (cWarn > 0) msgs.push(`<strong>${cWarn} próxima${cWarn!==1?'s':''}</strong>`);
-    document.getElementById('bannerUrgenteText').innerHTML = `⚠️ Tienes ${msgs.join(' y ')} que requieren atención.`;
+    const partes = [];
+    if (cDanger > 0) partes.push(`<strong>${cDanger} alerta${cDanger !== 1 ? 's' : ''} vencida${cDanger !== 1 ? 's' : ''}</strong>`);
+    if (cWarn > 0) partes.push(`<strong>${cWarn} próxima${cWarn !== 1 ? 's' : ''}</strong>`);
+    document.getElementById('bannerUrgenteText').innerHTML = `Tienes ${partes.join(' y ')} que requieren atención.`;
   } else {
     banner.classList.add('hidden');
   }
@@ -357,7 +364,7 @@ function render() {
   if (filtered.length === 0) {
     list.innerHTML = `
       <div class="empty-state">
-        <div class="emoji">🩺</div>
+        <div class="empty-icon">${spIcon('medical')}</div>
         <h3>No hay alertas${filtroActivo !== 'todas' ? ' en esta categoría' : ''}</h3>
         <p>Agrega recordatorios médicos para tus mascotas</p>
       </div>`;
@@ -366,32 +373,30 @@ function render() {
 
   list.innerHTML = '';
   filtered.forEach(a => {
-    const e = getEstado(a);
+    const e = calcularEstadoAlerta(a);
     const card = document.createElement('div');
     card.className = `alert-card ${e.tipo}`;
     card.innerHTML = `
       <div class="alert-indicator ${e.tipo}"></div>
-      <div class="alert-icon ${e.tipo}">${getTipoEmoji(a.tipo)}</div>
+      <div class="alert-icon ${e.tipo}">${spIcon(getTipoIcon(a.tipo))}</div>
       <div class="alert-info">
-        <div class="alert-title">${a.mascota} · ${a.tipo}</div>
+        <div class="alert-title">${esc(a.mascota)} · ${esc(a.tipo)}</div>
         <div class="alert-meta">
-          <span>📅 ${formatFecha(a.fecha)}</span>
-          ${a.desc ? `<span>📝 ${a.desc}</span>` : ''}
-          ${a.notas ? `<span>💬 ${a.notas}</span>` : ''}
+          <span>${spIcon('calendar')} ${formatFecha(a.fecha)}</span>
+          ${a.desc ? `<span>${spIcon('file')} ${esc(a.desc)}</span>` : ''}
+          ${a.notas ? `<span>${spIcon('chat')} ${esc(a.notas)}</span>` : ''}
         </div>
       </div>
       <div class="alert-badge ${e.tipo}">${e.texto}</div>
       <div class="alert-actions">
-        <button class="btn-alert" onclick="abrirEditar(${a.id})">✏️ Editar</button>
-        <button class="btn-alert del" onclick="confirmarEliminar(${a.id})">🗑</button>
+        <button class="btn-alert" onclick="abrirEditar(${a.id})">${spIcon('edit')} Editar</button>
+        <button class="btn-alert del" onclick="confirmarEliminar(${a.id})" aria-label="Eliminar alerta">${spIcon('trash')}</button>
       </div>`;
     list.appendChild(card);
   });
 }
 
-// ═══════════════════════════════════════
-// FILTROS
-// ═══════════════════════════════════════
+// Filtros
 function setFilter(f, btn) {
   filtroActivo = f;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -399,46 +404,31 @@ function setFilter(f, btn) {
   render();
 }
 
-// ═══════════════════════════════════════
-// MODAL
-// ═══════════════════════════════════════
+// Modal
 function poblarMascotas() {
   const sel = document.getElementById('fMascota');
   sel.innerHTML = '';
 
-  // Mascotas del sistema
-  const nombres = pets.length > 0
-    ? pets.map(p => p.nombre)
-    : ['Bruno', 'Fiodor'];
-
-  // También incluir mascotas ya en alertas
+  const nombres = pets.length > 0 ? pets.map(p => p.nombre) : ['Bruno', 'Fiodor'];
   alertas.forEach(a => { if (!nombres.includes(a.mascota)) nombres.push(a.mascota); });
 
-  nombres.forEach(n => {
-    const opt = document.createElement('option');
-    opt.value = n; opt.textContent = n;
-    sel.appendChild(opt);
-  });
-
-  // Opción para escribir nombre nuevo
-  const optNew = document.createElement('option');
-  optNew.value = '__nueva__'; optNew.textContent = '+ Otra mascota...';
-  sel.appendChild(optNew);
-
-  sel.addEventListener('change', () => {
-    if (sel.value === '__nueva__') {
-      const nombre = prompt('Nombre de la mascota:');
-      if (nombre) {
-        const opt = document.createElement('option');
-        opt.value = nombre; opt.textContent = nombre;
-        sel.insertBefore(opt, sel.lastChild);
-        sel.value = nombre;
-      } else {
-        sel.value = nombres[0];
-      }
-    }
-  });
+  nombres.forEach(n => sel.appendChild(new Option(n, n)));
+  sel.appendChild(new Option('+ Otra mascota...', '__nueva__'));
+  ultimaMascota = sel.value;
 }
+
+// El listener se registra una sola vez (antes se acumulaba cada vez que se abría el modal)
+document.getElementById('fMascota').addEventListener('change', function () {
+  if (this.value !== '__nueva__') { ultimaMascota = this.value; return; }
+  const nombre = (prompt('Nombre de la mascota:') || '').trim();
+  if (nombre) {
+    this.insertBefore(new Option(nombre, nombre), this.lastElementChild);
+    this.value = nombre;
+    ultimaMascota = nombre;
+  } else {
+    this.value = ultimaMascota;
+  }
+});
 
 function abrirCrear() {
   editId = null;
@@ -448,10 +438,7 @@ function abrirCrear() {
   document.getElementById('fNotas').value = '';
   document.getElementById('fTipo').value = 'Vacuna';
   document.getElementById('fRecordar').value = '5';
-
-  // Fecha default: hoy + 30 días
-  const d = new Date(); d.setDate(d.getDate() + 30);
-  document.getElementById('fFecha').value = d.toISOString().split('T')[0];
+  document.getElementById('fFecha').value = fechaRelativa(30);   // hoy + 30 días, en hora local
 
   poblarMascotas();
   document.getElementById('modalAlerta').classList.add('open');
@@ -464,7 +451,7 @@ function abrirEditar(id) {
   editId = id;
 
   document.getElementById('modalTitle').textContent = `Editar — ${a.mascota} · ${a.tipo}`;
-  document.getElementById('btnEliminarAlerta').style.display = 'block';
+  document.getElementById('btnEliminarAlerta').style.display = 'inline-flex';
   document.getElementById('fTipo').value = a.tipo;
   document.getElementById('fDesc').value = a.desc || '';
   document.getElementById('fFecha').value = a.fecha;
@@ -473,6 +460,7 @@ function abrirEditar(id) {
 
   poblarMascotas();
   document.getElementById('fMascota').value = a.mascota;
+  ultimaMascota = a.mascota;
 
   document.getElementById('modalAlerta').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -486,42 +474,40 @@ function cerrarModal() {
 document.getElementById('modalAlerta').addEventListener('click', e => {
   if (e.target === e.currentTarget) cerrarModal();
 });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
 
-// ═══════════════════════════════════════
-// GUARDAR
-// ═══════════════════════════════════════
+// Guardar
 function guardarAlerta() {
   const mascota = document.getElementById('fMascota').value;
   const fecha = document.getElementById('fFecha').value;
 
-  if (!mascota || !fecha) { showToast('Completa los campos obligatorios', 'err'); return; }
+  if (!mascota || mascota === '__nueva__' || !fecha) { showToast('Completa los campos obligatorios', 'err'); return; }
 
   const data = {
     mascota,
     tipo: document.getElementById('fTipo').value,
     desc: document.getElementById('fDesc').value.trim(),
     fecha,
-    recordar: parseInt(document.getElementById('fRecordar').value),
+    recordar: parseInt(document.getElementById('fRecordar').value, 10),
     notas: document.getElementById('fNotas').value.trim()
   };
 
-  if (editId) {
+  const respaldo = JSON.stringify(alertas);
+  const esEdicion = editId !== null;
+  if (esEdicion) {
     const idx = alertas.findIndex(x => x.id === editId);
     alertas[idx] = { ...alertas[idx], ...data };
-    showToast('✅ Alerta actualizada', 'ok');
   } else {
     alertas.push({ id: Date.now(), ...data });
-    showToast('✅ Alerta creada', 'ok');
   }
 
-  guardarAlertas();
+  if (!guardarAlertas()) { alertas = JSON.parse(respaldo); return; }
+  showToast(esEdicion ? 'Alerta actualizada' : 'Alerta creada', 'ok');
   render();
   cerrarModal();
 }
 
-// ═══════════════════════════════════════
-// ELIMINAR
-// ═══════════════════════════════════════
+// Eliminar
 function eliminarAlerta() {
   const a = alertas.find(x => x.id === editId);
   if (!a) return;
@@ -530,7 +516,7 @@ function eliminarAlerta() {
   guardarAlertas();
   render();
   cerrarModal();
-  showToast('🗑 Alerta eliminada', 'err');
+  showToast('Alerta eliminada', 'err');
 }
 
 function confirmarEliminar(id) {
@@ -540,22 +526,20 @@ function confirmarEliminar(id) {
   alertas = alertas.filter(x => x.id !== id);
   guardarAlertas();
   render();
-  showToast('🗑 Alerta eliminada', 'err');
+  showToast('Alerta eliminada', 'err');
 }
 
-// ═══════════════════════════════════════
-// TOAST
-// ═══════════════════════════════════════
-function showToast(msg, type='') {
+// Aviso temporal
+function showToast(msg, type = '') {
   const wrap = document.getElementById('toastWrap');
   const t = document.createElement('div');
-  t.className = `toast${type?' '+type:''}`;
+  t.className = `toast${type ? ' ' + type : ''}`;
   t.textContent = msg;
   wrap.appendChild(t);
   setTimeout(() => t.remove(), 3500);
 }
 
-// INIT
+// Inicio
 render();
 </script>
 </body>

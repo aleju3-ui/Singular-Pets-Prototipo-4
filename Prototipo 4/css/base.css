@@ -25,7 +25,7 @@ img, svg { max-width: 100%; display: block; }
   outline-offset: 2px;
 }
 
-/* ── NAV (barra superior compartida) ── */
+/* NAV (barra superior compartida) */
 .site-nav {
   background: var(--white);
   border-bottom: 1px solid var(--gray-mid);

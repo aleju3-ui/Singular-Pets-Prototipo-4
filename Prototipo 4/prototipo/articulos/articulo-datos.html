@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Importancia de actualizar los datos — Singular Pets</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/icons.css"/>
+  <script src="../../js/icons.js"></script>
   <style>
     :root {
       --orange: #F87141; --orange-dark: #E05E2A; --orange-pale: #FEF0E9;
@@ -32,7 +34,7 @@
     .article-title { font-size: clamp(30px, 5vw, 48px); font-weight: 900; letter-spacing: -1.5px; color: var(--text); line-height: 1.1; margin-bottom: 16px; }
     .article-subtitle { font-size: 18px; color: var(--gray); font-weight: 400; line-height: 1.7; margin-bottom: 28px; max-width: 640px; }
     .article-meta { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); margin-bottom: 36px; }
-    .meta-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .meta-avatar { color: var(--orange); width: 40px; height: 40px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .meta-info p:first-child { font-size: 14px; font-weight: 600; color: var(--text); }
     .meta-info p:last-child { font-size: 12px; color: var(--gray); margin-top: 1px; }
     .article-img { max-width: 860px; margin: 0 auto 48px; border-radius: 20px; overflow: hidden; height: 420px; box-shadow: var(--shadow-md); }
@@ -85,11 +87,11 @@
 </nav>
 
 <div class="article-hero">
-  <span class="article-tag">📝 Consejos</span>
+  <span class="article-tag"><span data-icon="file"></span> Consejos</span>
   <h1 class="article-title">Importancia de actualizar los datos de tu mascota</h1>
   <p class="article-subtitle">Un número de teléfono desactualizado puede ser la diferencia entre encontrar a tu mascota en horas o no encontrarla nunca.</p>
   <div class="article-meta">
-    <div class="meta-avatar">🐾</div>
+    <div class="meta-avatar"><span data-icon="paw"></span></div>
     <div class="meta-info">
       <p>Equipo Singular Pets</p>
       <p>8 de mayo, 2026 · 5 min de lectura</p>
@@ -112,7 +114,7 @@
   <p>Según estadísticas de organizaciones de rescate animal, más del 30% de los intentos fallidos de reunir mascotas con sus dueños se deben a información de contacto incorrecta o desactualizada.</p>
 
   <div class="tip-box">
-    <p><strong>💡 Dato importante:</strong> Con Singular Pets puedes actualizar los datos de tu mascota en segundos desde cualquier celular. El cambio se refleja inmediatamente en el perfil público — no necesitas reemplazar la placa física.</p>
+    <p><strong><span data-icon="bulb"></span> Dato importante:</strong> Con Singular Pets puedes actualizar los datos de tu mascota en segundos desde cualquier celular. El cambio se refleja inmediatamente en el perfil público — no necesitas reemplazar la placa física.</p>
   </div>
 
   <h2>Qué datos debes mantener actualizados</h2>
@@ -141,14 +143,14 @@
   </ul>
 
   <div class="checklist">
-    <h3>✅ Checklist de actualización semestral</h3>
-    <div class="checklist-item"><div class="check">✓</div>Verificar número de teléfono principal activo</div>
-    <div class="checklist-item"><div class="check">✓</div>Confirmar contacto alternativo vigente</div>
-    <div class="checklist-item"><div class="check">✓</div>Actualizar dirección si hubo mudanza</div>
-    <div class="checklist-item"><div class="check">✓</div>Revisar alergias y medicamentos actuales</div>
-    <div class="checklist-item"><div class="check">✓</div>Subir foto reciente de la mascota</div>
-    <div class="checklist-item"><div class="check">✓</div>Actualizar datos del veterinario</div>
-    <div class="checklist-item"><div class="check">✓</div>Revisar fechas de vacunación próximas</div>
+    <h3><span data-icon="check-circle"></span> Checklist de actualización semestral</h3>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Verificar número de teléfono principal activo</div>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Confirmar contacto alternativo vigente</div>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Actualizar dirección si hubo mudanza</div>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Revisar alergias y medicamentos actuales</div>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Subir foto reciente de la mascota</div>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Actualizar datos del veterinario</div>
+    <div class="checklist-item"><div class="check"><span data-icon="check"></span></div>Revisar fechas de vacunación próximas</div>
   </div>
 
   <h2>Cuándo actualizar inmediatamente</h2>
@@ -177,7 +179,7 @@
   <p>Todo el proceso toma menos de 2 minutos. No necesitas pedir una nueva placa, no necesitas ir a ningún lugar. Desde donde estés, cuando quieras.</p>
 
   <div class="article-cta">
-    <h3>🐾 ¿Ya revisaste los datos de tu mascota?</h3>
+    <h3><span data-icon="paw"></span> ¿Ya revisaste los datos de tu mascota?</h3>
     <p>Entra a tu panel de Singular Pets y verifica que todo esté al día. Es la acción más simple que puedes tomar hoy para proteger a tu compañero.</p>
     <a href="../../inicio_sesion/singular_inicio_sesion.html" class="btn-cta">Actualizar mi perfil →</a>
   </div>

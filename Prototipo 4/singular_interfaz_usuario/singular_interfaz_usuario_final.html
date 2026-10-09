@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Singular Pets — Mi Panel</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/icons.css"/>
+  <script src="../js/icons.js"></script>
   <style>
     :root {
       --orange:#F87141; --orange-dark:#E05E2A; --orange-pale:#FEF0E9; --orange-mid:#FDDDCC;
@@ -53,7 +55,7 @@
     .card{background:var(--white);border:1px solid var(--gray-mid);border-radius:20px;padding:24px;box-shadow:var(--shadow-sm);}
     .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
     .card-title{font-size:17px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
-    .card-title-icon{width:30px;height:30px;background:var(--orange-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;}
+    .card-title-icon{color:var(--orange);width:30px;height:30px;background:var(--orange-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;}
     .card-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:18px;}
 
     /* PETS */
@@ -78,7 +80,7 @@
     .tag-danger{background:var(--danger-bg);color:var(--danger-text);border-color:rgba(255,59,48,0.18);}
     .tag-neutral{background:var(--white);color:var(--gray);border-color:var(--gray-mid);}
     .pet-actions{display:flex;gap:5px;flex-wrap:wrap;}
-    .btn-sm{padding:6px 11px;border:none;border-radius:9999px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:opacity .2s;}
+    .btn-sm{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border:none;border-radius:9999px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:opacity .2s;}
     .btn-sm:hover{opacity:.8;}
     .btn-soft{background:var(--white);color:var(--charcoal);border:1px solid var(--gray-mid);}
     .btn-orange-soft{background:var(--orange-pale);color:var(--orange);border:1px solid rgba(248,113,65,0.2);}
@@ -125,9 +127,9 @@
     /* TIPS */
     .tips{display:flex;flex-direction:column;gap:8px;}
     .tip{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--gray-light);border:1px solid var(--gray-mid);border-radius:12px;font-size:13px;color:var(--gray);line-height:1.6;}
-    .tip-dot{width:20px;height:20px;flex-shrink:0;margin-top:1px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--orange);font-weight:700;}
+    .tip-dot{width:20px;height:20px;flex-shrink:0;margin-top:1px;background:var(--orange-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--orange);font-weight:700;}
 
-    /* ══ MODALES ══ */
+    /* MODALES */
     .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:200;align-items:center;justify-content:center;padding:16px;}
     .modal-overlay.open{display:flex;}
     .modal{background:var(--white);border-radius:24px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:mIn .22s ease;}
@@ -140,7 +142,7 @@
 
     /* FORM */
     .form-section{margin-bottom:20px;}
-    .form-section-title{font-size:13px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--orange-mid);}
+    .form-section-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--orange-mid);}
     .form-group{margin-bottom:13px;}
     .form-label{display:block;font-size:12px;font-weight:600;color:var(--charcoal);margin-bottom:6px;letter-spacing:0.03em;}
     .form-input{width:100%;padding:11px 14px;background:var(--gray-light);border:1.5px solid var(--gray-mid);border-radius:10px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s;}
@@ -162,7 +164,7 @@
     .camera-wrap{display:none;margin-bottom:14px;}
     .camera-wrap.open{display:block;}
     .camera-wrap video{width:100%;border-radius:10px;background:#000;}
-    .btn-capture{width:100%;padding:11px;background:var(--charcoal);color:white;border:none;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;margin-top:8px;}
+    .btn-capture{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;background:var(--charcoal);color:white;border:none;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;margin-top:8px;}
 
     /* BTNS MODAL */
     .modal-footer{display:flex;gap:10px;margin-top:16px;}
@@ -170,7 +172,7 @@
     .btn-modal-primary:hover{background:var(--orange-dark);}
     .btn-modal-ghost{padding:13px 20px;background:var(--gray-light);color:var(--charcoal);border:1px solid var(--gray-mid);border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;transition:background .2s;}
     .btn-modal-ghost:hover{background:var(--gray-mid);}
-    .btn-modal-danger{padding:13px 20px;background:var(--danger-bg);color:var(--danger-text);border:1px solid rgba(255,59,48,0.2);border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
+    .btn-modal-danger{display:inline-flex;align-items:center;gap:6px;padding:13px 20px;background:var(--danger-bg);color:var(--danger-text);border:1px solid rgba(255,59,48,0.2);border-radius:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;}
     .btn-modal-danger:hover{background:#fde8e7;}
 
     /* TOAST */
@@ -183,6 +185,33 @@
 
     @media(max-width:980px){.main-grid{grid-template-columns:1fr;}.hero-banner-content{flex-direction:column;align-items:flex-start;gap:14px;}nav{padding:0 20px;}.wrap{padding:20px 20px 48px;}}
     @media(max-width:600px){.pets-grid{grid-template-columns:1fr;}.hero-stats{flex-wrap:wrap;}.form-row{grid-template-columns:1fr;}}
+    /* Celulares y pantallas táctiles */
+    @media(max-width:980px){
+      .hero-banner{height:auto;min-height:200px;}
+      .hero-banner img{position:absolute;inset:0;}
+      .hero-banner-content{position:relative;inset:auto;}
+    }
+    @media(max-width:640px){
+      nav{padding:0 12px;}
+      .nav-actions{gap:6px;}
+      .nav-btn{padding:8px 10px;}
+      .nav-btn-label{display:none;}
+      .hero-stats{width:100%;}
+      .stat-card{flex:1;min-width:0;padding:12px 8px;}
+      .toast-wrap{left:16px;right:16px;bottom:16px;}
+      .modal-footer{flex-wrap:wrap;}
+      .btn-modal-primary{flex:1 1 100%;order:-1;}
+    }
+    @media(hover:none){
+      .pet-photo-overlay{opacity:1;justify-content:flex-end;padding-bottom:8px;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent 55%);}
+      .pet-photo-overlay svg{display:none;}
+    }
+    @media(pointer:coarse){
+      .form-input,.form-select{font-size:16px;}
+      .btn-sm{min-height:40px;padding:8px 14px;}
+      .nav-btn{min-height:40px;}
+      .modal-close{width:40px;height:40px;}
+    }
   </style>
 </head>
 <body>
@@ -198,12 +227,12 @@
     </a>
   </div>
   <div class="nav-actions">
-    <button class="nav-btn" onclick="window.location.href='singular_interfaz_usuario_final.html'"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Mi cuenta</button>
-    <button class="nav-btn" onclick="window.location.href='../qr-perfil/singular_qr_perfil.html'" style="font-size:13px;">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h3"/></svg>Perfil QR</button>
-    <button class="nav-btn" onclick="window.location.href='alertas-medicas.html'"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>Alertas</button>
-    <button class="nav-btn nav-btn-orange" onclick="localStorage.removeItem('sp_usuario'); window.location.href='../inicio_sesion/singular_inicio_sesion.html'">
-      <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Cerrar sesión
+    <button class="nav-btn" aria-label="Mi cuenta" onclick="window.location.href='singular_interfaz_usuario_final.html'"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="nav-btn-label">Mi cuenta</span></button>
+    <button class="nav-btn" aria-label="Perfil QR" onclick="window.location.href='../qr-perfil/singular_qr_perfil.html'">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h3"/></svg><span class="nav-btn-label">Perfil QR</span></button>
+    <button class="nav-btn" aria-label="Alertas" onclick="window.location.href='alertas-medicas.html'"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><span class="nav-btn-label">Alertas</span></button>
+    <button class="nav-btn nav-btn-orange" aria-label="Cerrar sesión" onclick="localStorage.removeItem('sp_usuario'); window.location.href='../inicio_sesion/singular_inicio_sesion.html'">
+      <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span class="nav-btn-label">Cerrar sesión</span>
     </button>
   </div>
 </nav>
@@ -216,7 +245,7 @@
     <div class="hero-banner-overlay"></div>
     <div class="hero-banner-content">
       <div>
-        <h1 class="hero-greeting">Hola, <span>Alejandro</span> 👋</h1>
+        <h1 class="hero-greeting">Hola, <span>Alejandro</span></h1>
         <p class="hero-desc">Gestiona tus mascotas, revisa alertas médicas y administra tus placas QR/NFC.</p>
       </div>
       <div class="hero-stats">
@@ -233,7 +262,7 @@
     <!-- MASCOTAS -->
     <div class="card">
       <div class="card-head">
-        <h2 class="card-title"><span class="card-title-icon">🐾</span>Mis mascotas</h2>
+        <h2 class="card-title"><span class="card-title-icon"><span data-icon="paw"></span></span>Mis mascotas</h2>
       </div>
       <p class="card-desc">Gestiona perfiles, fotos y estado de cada mascota.</p>
       <div class="pets-grid" id="petsGrid"></div>
@@ -241,7 +270,7 @@
 
     <!-- PLACAS -->
     <div class="card">
-      <div class="card-head"><h2 class="card-title"><span class="card-title-icon">📟</span>Placas QR/NFC</h2></div>
+      <div class="card-head"><h2 class="card-title"><span class="card-title-icon"><span data-icon="qr"></span></span>Placas QR/NFC</h2></div>
       <p class="card-desc">Activa, desactiva o asigna tus placas físicas.</p>
       <div class="plate"><div><h4>Placa #001</h4><p>Bruno · QR + NFC</p></div><span class="plate-tag plate-on">Activa</span></div>
       <div class="plate"><div><h4>Placa #002</h4><p>Fiodor · QR + NFC</p></div><span class="plate-tag plate-off">Inactiva</span></div>
@@ -255,7 +284,7 @@
   <!-- ALERTAS -->
   <div class="card" style="margin-bottom:20px;">
     <div class="card-head">
-      <h2 class="card-title"><span class="card-title-icon">🩺</span>Alertas médicas</h2>
+      <h2 class="card-title"><span class="card-title-icon"><span data-icon="medical"></span></span>Alertas médicas</h2>
       <button class="btn-sm btn-soft" onclick="window.location.href='alertas-medicas.html'">Ver todas</button>
     </div>
     <p class="card-desc">Recordatorios de vacunas, desparasitación y controles.</p>
@@ -265,30 +294,30 @@
 
   <!-- TIPS -->
   <div class="card">
-    <div class="card-head"><h2 class="card-title"><span class="card-title-icon">💡</span>Recomendaciones</h2></div>
+    <div class="card-head"><h2 class="card-title"><span class="card-title-icon"><span data-icon="bulb"></span></span>Recomendaciones</h2></div>
     <p class="card-desc">Acciones para mantener tu sistema al día.</p>
     <div class="tips">
-      <div class="tip"><div class="tip-dot">✓</div>Verifica y actualiza tus datos de contacto: teléfono, dirección y contacto alterno.</div>
-      <div class="tip"><div class="tip-dot">✓</div>Mantén el historial médico al día: alergias, vacunas y medicamentos actuales.</div>
-      <div class="tip"><div class="tip-dot">✓</div>Si una mascota está perdida, activa el estado "Perdida" para priorizar su rescate.</div>
-      <div class="tip"><div class="tip-dot">✓</div>Revisa periódicamente el estado de las placas QR/NFC y su asignación correcta.</div>
+      <div class="tip"><div class="tip-dot"><span data-icon="check"></span></div>Verifica y actualiza tus datos de contacto: teléfono, dirección y contacto alterno.</div>
+      <div class="tip"><div class="tip-dot"><span data-icon="check"></span></div>Mantén el historial médico al día: alergias, vacunas y medicamentos actuales.</div>
+      <div class="tip"><div class="tip-dot"><span data-icon="check"></span></div>Si una mascota está perdida, activa el estado "Perdida" para priorizar su rescate.</div>
+      <div class="tip"><div class="tip-dot"><span data-icon="check"></span></div>Revisa periódicamente el estado de las placas QR/NFC y su asignación correcta.</div>
     </div>
   </div>
 
 </main>
 
-<!-- ══ MODAL: CREAR / EDITAR MASCOTA ══ -->
-<div class="modal-overlay" id="modalPet">
+<!-- MODAL: CREAR / EDITAR MASCOTA -->
+<div class="modal-overlay" id="modalPet" role="dialog" aria-modal="true" aria-labelledby="modalPetTitle">
   <div class="modal">
     <div class="modal-header">
       <h2 class="modal-title" id="modalPetTitle">Nueva mascota</h2>
-      <button class="modal-close" onclick="closeModal('modalPet')">✕</button>
+      <button class="modal-close" onclick="closeModal('modalPet')" aria-label="Cerrar">✕</button>
     </div>
     <div class="modal-body">
 
       <!-- FOTO -->
       <div class="form-section">
-        <div class="form-section-title">📷 Foto de la mascota</div>
+        <div class="form-section-title"><span data-icon="camera"></span> Foto de la mascota</div>
         <div class="foto-preview" id="fotoPreview" onclick="document.getElementById('fileInput').click()">
           <img id="fotoPreviewImg" src="" alt="">
           <div class="foto-preview-text" id="fotoPlaceholder">
@@ -309,20 +338,20 @@
         </div>
         <div class="camera-wrap" id="cameraWrap">
           <video id="camVideo" autoplay playsinline></video>
-          <button class="btn-capture" onclick="capturarFoto()">📸 Tomar foto</button>
+          <button class="btn-capture" onclick="capturarFoto()"><span data-icon="camera"></span> Tomar foto</button>
         </div>
       </div>
 
       <!-- INFO BÁSICA -->
       <div class="form-section">
-        <div class="form-section-title">🐾 Información básica</div>
+        <div class="form-section-title"><span data-icon="paw"></span> Información básica</div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Nombre *</label>
+            <label class="form-label" for="fNombre">Nombre *</label>
             <input class="form-input" id="fNombre" type="text" placeholder="Ej: Luna" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Especie *</label>
+            <label class="form-label" for="fEspecie">Especie *</label>
             <select class="form-select" id="fEspecie">
               <option value="Perro">Perro</option>
               <option value="Gato">Gato</option>
@@ -334,21 +363,21 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Raza</label>
+            <label class="form-label" for="fRaza">Raza</label>
             <input class="form-input" id="fRaza" type="text" placeholder="Ej: Labrador">
           </div>
           <div class="form-group">
-            <label class="form-label">Edad</label>
+            <label class="form-label" for="fEdad">Edad</label>
             <input class="form-input" id="fEdad" type="text" placeholder="Ej: 3 años">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Color / Señas</label>
+            <label class="form-label" for="fColor">Color / Señas</label>
             <input class="form-input" id="fColor" type="text" placeholder="Ej: Café con manchas">
           </div>
           <div class="form-group">
-            <label class="form-label">Peso</label>
+            <label class="form-label" for="fPeso">Peso</label>
             <input class="form-input" id="fPeso" type="text" placeholder="Ej: 8 kg">
           </div>
         </div>
@@ -356,46 +385,46 @@
 
       <!-- MÉDICO -->
       <div class="form-section">
-        <div class="form-section-title">🏥 Información médica</div>
+        <div class="form-section-title"><span data-icon="medical"></span> Información médica</div>
         <div class="form-group">
-          <label class="form-label">Alergias / Condiciones</label>
+          <label class="form-label" for="fAlergias">Alergias / Condiciones</label>
           <textarea class="form-input" id="fAlergias" placeholder="Ej: Alérgico al pollo, toma medicamento X"></textarea>
         </div>
         <div class="form-group">
-          <label class="form-label">Vacunas al día</label>
+          <label class="form-label" for="fVacunas">Vacunas al día</label>
           <input class="form-input" id="fVacunas" type="text" placeholder="Ej: Antirrábica, polivalente">
         </div>
       </div>
 
       <!-- VETERINARIO -->
       <div class="form-section">
-        <div class="form-section-title">👨‍⚕️ Veterinario</div>
+        <div class="form-section-title"><span data-icon="user"></span> Veterinario</div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Nombre</label>
+            <label class="form-label" for="fVet">Nombre</label>
             <input class="form-input" id="fVet" type="text" placeholder="Dr. Martínez">
           </div>
           <div class="form-group">
-            <label class="form-label">Teléfono</label>
+            <label class="form-label" for="fVetTel">Teléfono</label>
             <input class="form-input" id="fVetTel" type="tel" placeholder="+57 300...">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Clínica / Dirección</label>
+          <label class="form-label" for="fVetDir">Clínica / Dirección</label>
           <input class="form-input" id="fVetDir" type="text" placeholder="Clínica Veterinaria...">
         </div>
       </div>
 
       <!-- EMERGENCIA -->
       <div class="form-section">
-        <div class="form-section-title">🆘 Contacto de emergencia</div>
+        <div class="form-section-title"><span data-icon="phone"></span> Contacto de emergencia</div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Nombre</label>
+            <label class="form-label" for="fEmNombre">Nombre</label>
             <input class="form-input" id="fEmNombre" type="text" placeholder="Carlos Ruiz">
           </div>
           <div class="form-group">
-            <label class="form-label">Teléfono</label>
+            <label class="form-label" for="fEmTel">Teléfono</label>
             <input class="form-input" id="fEmTel" type="tel" placeholder="+57 300...">
           </div>
         </div>
@@ -403,7 +432,7 @@
 
       <!-- NOTAS -->
       <div class="form-section">
-        <div class="form-section-title">📝 Notas adicionales</div>
+        <div class="form-section-title"><span data-icon="file"></span> Notas adicionales</div>
         <div class="form-group">
           <textarea class="form-input" id="fNotas" placeholder="Cualquier información extra útil..."></textarea>
         </div>
@@ -411,7 +440,7 @@
 
       <div class="modal-footer">
         <button class="btn-modal-ghost" onclick="closeModal('modalPet')">Cancelar</button>
-        <button class="btn-modal-danger" id="btnEliminar" onclick="eliminarMascota()" style="display:none">🗑 Eliminar</button>
+        <button class="btn-modal-danger" id="btnEliminar" onclick="eliminarMascota()" style="display:none"><span data-icon="trash"></span> Eliminar</button>
         <button class="btn-modal-primary" onclick="guardarMascota()">Guardar mascota</button>
       </div>
     </div>
@@ -421,12 +450,11 @@
 <!-- TOAST -->
 <div class="toast-wrap" id="toastWrap"></div>
 
+<script src="../js/utils.js"></script>
 <script>
-// ═══════════════════════════════════════
-// ESTADO GLOBAL
-// ═══════════════════════════════════════
-let pets = JSON.parse(localStorage.getItem('SP_PETS2') || 'null');
-if (!pets) {
+// Estado global
+let pets = leerLS('SP_PETS2', null);
+if (!Array.isArray(pets)) {
   pets = [
     { id: 1, nombre:'Bruno', especie:'Perro', raza:'Golden Retriever', edad:'4 años', color:'Dorado', peso:'28 kg', estado:'normal', foto:null, alergias:'Ninguna conocida', vacunas:'Antirrábica, polivalente', vet:'Dr. Martínez', vetTel:'+57 300 111 2222', vetDir:'Clínica Vet El Parque', emNombre:'Carlos Ruiz', emTel:'+57 300 333 4444', notas:'' },
     { id: 2, nombre:'Fiodor', especie:'Gato', raza:'Mestizo', edad:'2 años', color:'Manchas café · Ojos azules', peso:'4 kg', estado:'perdida', foto:null, alergias:'Intolerante a lácteos', vacunas:'Felina triple', vet:'Dra. López', vetTel:'+57 300 555 6666', vetDir:'VetCat Dosquebradas', emNombre:'María Torres', emTel:'+57 300 777 8888', notas:'Sale mucho por la ventana del segundo piso' }
@@ -438,11 +466,18 @@ let petEditId = null;
 let fotoTemp = null;
 let camStream = null;
 
-function guardarPets() { localStorage.setItem('SP_PETS2', JSON.stringify(pets)); }
+// Devuelve false si el navegador no tiene espacio (las fotos pesan)
+function guardarPets() {
+  try {
+    localStorage.setItem('SP_PETS2', JSON.stringify(pets));
+    return true;
+  } catch (e) {
+    showToast('No hay espacio para guardar. Prueba con una foto más liviana.', 'err');
+    return false;
+  }
+}
 
-// ═══════════════════════════════════════
-// RENDER
-// ═══════════════════════════════════════
+// Renderizado
 function renderPets() {
   const grid = document.getElementById('petsGrid');
   document.getElementById('statMascotas').textContent = pets.length;
@@ -450,30 +485,30 @@ function renderPets() {
 
   pets.forEach(p => {
     const lost = p.estado === 'perdida';
-    const initial = p.nombre.charAt(0).toUpperCase();
+    const initial = (p.nombre || '?').charAt(0).toUpperCase();
     const card = document.createElement('article');
     card.className = `pet-card${lost ? ' lost' : ''}`;
     card.innerHTML = `
       <div class="pet-photo" onclick="abrirFotoPet(${p.id})">
         ${p.foto
-          ? `<img src="${p.foto}" alt="${p.nombre}">`
-          : `<div class="pet-photo-placeholder"><span class="pet-initial-big">${initial}</span></div>`}
+          ? `<img src="${esc(p.foto)}" alt="${esc(p.nombre)}">`
+          : `<div class="pet-photo-placeholder"><span class="pet-initial-big">${esc(initial)}</span></div>`}
         <div class="pet-photo-overlay">
-          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          ${spIcon('camera')}
           <span>Cambiar foto</span>
         </div>
       </div>
       <div class="pet-body">
-        <p class="pet-name">${p.nombre}</p>
+        <p class="pet-name">${esc(p.nombre)}</p>
         <div class="pet-tags">
           <span class="tag ${lost?'tag-danger':'tag-ok'}"><span class="tag-dot"></span>${lost?'Perdida':'Normal'}</span>
-          <span class="tag tag-neutral">${p.especie}</span>
+          <span class="tag tag-neutral">${esc(p.especie)}</span>
         </div>
         <div class="pet-actions">
-          <button class="btn-sm btn-soft" onclick="verPerfil(${p.id})">👁 Ver perfil</button>
-          <button class="btn-sm btn-soft" onclick="abrirEditar(${p.id})">✏️ Editar</button>
+          <button class="btn-sm btn-soft" onclick="verPerfil(${p.id})">${spIcon('eye')} Ver perfil</button>
+          <button class="btn-sm btn-soft" onclick="abrirEditar(${p.id})">${spIcon('edit')} Editar</button>
           <button class="btn-sm ${lost?'btn-ok-soft':'btn-orange-soft'}" onclick="toggleEstado(${p.id})">
-            ${lost?'✓ Encontrada':'⚠ Perdida'}
+            ${lost ? spIcon('check') + ' Encontrada' : spIcon('alert') + ' Perdida'}
           </button>
         </div>
       </div>`;
@@ -488,31 +523,25 @@ function renderPets() {
   grid.appendChild(add);
 }
 
-// ═══════════════════════════════════════
-// VER PERFIL
-// ═══════════════════════════════════════
+// Ver perfil público de la mascota
 function verPerfil(id) {
   localStorage.setItem('SP_PET_VISTA', id);
-  window.location.href = `perfil-mascota.html?id=${id}`;
+  window.location.href = `../qr-perfil/singular_qr_perfil.html?id=${encodeURIComponent(id)}`;
 }
 
-// ═══════════════════════════════════════
-// TOGGLE ESTADO
-// ═══════════════════════════════════════
+// Cambiar estado perdida / encontrada
 function toggleEstado(id) {
   const p = pets.find(x => x.id === id);
   if (!p) return;
   const wasLost = p.estado === 'perdida';
   if (!confirm(wasLost ? `¿Confirmas que ${p.nombre} fue encontrada?` : `¿Confirmas que ${p.nombre} está perdida? Se activará la alerta.`)) return;
   p.estado = wasLost ? 'normal' : 'perdida';
-  guardarPets();
+  if (!guardarPets()) { p.estado = wasLost ? 'perdida' : 'normal'; return; }
   renderPets();
-  showToast(wasLost ? `✅ ${p.nombre} marcada como encontrada` : `🚨 Alerta activada para ${p.nombre}`, wasLost ? 'ok' : 'warn');
+  showToast(wasLost ? `${p.nombre} marcada como encontrada` : `Alerta activada para ${p.nombre}`, wasLost ? 'ok' : 'warn');
 }
 
-// ═══════════════════════════════════════
-// ABRIR MODAL CREAR
-// ═══════════════════════════════════════
+// Modal: crear
 function abrirCrear() {
   petEditId = null;
   fotoTemp = null;
@@ -523,9 +552,7 @@ function abrirCrear() {
   openModal('modalPet');
 }
 
-// ═══════════════════════════════════════
-// ABRIR MODAL EDITAR
-// ═══════════════════════════════════════
+// Modal: editar
 function abrirEditar(id) {
   const p = pets.find(x => x.id === id);
   if (!p) return;
@@ -533,7 +560,7 @@ function abrirEditar(id) {
   fotoTemp = p.foto || null;
 
   document.getElementById('modalPetTitle').textContent = `Editar — ${p.nombre}`;
-  document.getElementById('btnEliminar').style.display = 'block';
+  document.getElementById('btnEliminar').style.display = 'inline-flex';
 
   document.getElementById('fNombre').value = p.nombre || '';
   document.getElementById('fEspecie').value = p.especie || 'Perro';
@@ -550,20 +577,13 @@ function abrirEditar(id) {
   document.getElementById('fEmTel').value = p.emTel || '';
   document.getElementById('fNotas').value = p.notas || '';
 
-  if (p.foto) {
-    document.getElementById('fotoPreviewImg').src = p.foto;
-    document.getElementById('fotoPreviewImg').style.display = 'block';
-    document.getElementById('fotoPlaceholder').style.display = 'none';
-  } else {
-    resetFotoPreview();
-  }
+  if (p.foto) mostrarFotoPreview(p.foto); else resetFotoPreview();
+  fotoTemp = p.foto || null;
 
   openModal('modalPet');
 }
 
-// ═══════════════════════════════════════
-// GUARDAR
-// ═══════════════════════════════════════
+// Guardar
 function guardarMascota() {
   const nombre = document.getElementById('fNombre').value.trim();
   if (!nombre) { showToast('El nombre es obligatorio', 'err'); return; }
@@ -586,24 +606,21 @@ function guardarMascota() {
     foto: fotoTemp
   };
 
+  const respaldo = JSON.stringify(pets);
   if (petEditId) {
     const idx = pets.findIndex(x => x.id === petEditId);
     pets[idx] = { ...pets[idx], ...data };
-    showToast(`✅ ${nombre} actualizada`, 'ok');
   } else {
     pets.push({ id: Date.now(), estado: 'normal', ...data });
-    showToast(`🐾 ${nombre} registrada exitosamente`, 'ok');
   }
 
-  guardarPets();
+  if (!guardarPets()) { pets = JSON.parse(respaldo); return; }
+  showToast(petEditId ? `${nombre} actualizada` : `${nombre} registrada exitosamente`, 'ok');
   renderPets();
   closeModal('modalPet');
-  detenerCamara();
 }
 
-// ═══════════════════════════════════════
-// ELIMINAR
-// ═══════════════════════════════════════
+// Eliminar
 function eliminarMascota() {
   const p = pets.find(x => x.id === petEditId);
   if (!p) return;
@@ -612,28 +629,40 @@ function eliminarMascota() {
   guardarPets();
   renderPets();
   closeModal('modalPet');
-  showToast(`🗑 ${p.nombre} eliminada`, 'err');
+  showToast(`${p.nombre} eliminada`, 'err');
 }
 
-// ═══════════════════════════════════════
-// FOTO DESDE DASHBOARD (click en la foto)
-// ═══════════════════════════════════════
+// Foto desde el panel (clic en la foto)
 function abrirFotoPet(id) {
   abrirEditar(id);
-  // Scroll hasta la sección de foto
   setTimeout(() => {
     document.getElementById('fotoPreview').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 200);
 }
 
-// ═══════════════════════════════════════
-// MANEJO DE FOTO
-// ═══════════════════════════════════════
+// Manejo de fotos: se reducen a 800 px para que quepan en el almacenamiento del navegador
+function reducirImagen(origen, ancho, alto) {
+  const r = Math.min(1, 800 / Math.max(ancho, alto));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(ancho * r);
+  canvas.height = Math.round(alto * r);
+  canvas.getContext('2d').drawImage(origen, 0, 0, canvas.width, canvas.height);
+  return canvas.toDataURL('image/jpeg', 0.8);
+}
+
 function handleFile(e) {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => { fotoTemp = ev.target.result; mostrarFotoPreview(fotoTemp); };
-  reader.readAsDataURL(file);
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+  const img = new Image();
+  img.onload = () => {
+    fotoTemp = reducirImagen(img, img.width, img.height);
+    mostrarFotoPreview(fotoTemp);
+    URL.revokeObjectURL(url);
+  };
+  img.onerror = () => { URL.revokeObjectURL(url); showToast('No se pudo leer la imagen', 'err'); };
+  img.src = url;
+  e.target.value = '';
 }
 
 function mostrarFotoPreview(src) {
@@ -653,20 +682,23 @@ function toggleCamera() {
   if (wrap.classList.contains('open')) {
     detenerCamara();
     wrap.classList.remove('open');
-  } else {
-    wrap.classList.add('open');
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
-      .then(s => { camStream = s; document.getElementById('camVideo').srcObject = s; })
-      .catch(() => { showToast('No se pudo acceder a la cámara', 'warn'); wrap.classList.remove('open'); });
+    return;
   }
+  // La cámara solo funciona en páginas seguras (https o localhost)
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    showToast('Este navegador no permite usar la cámara aquí. Usa "Subir archivo".', 'warn');
+    return;
+  }
+  wrap.classList.add('open');
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+    .then(s => { camStream = s; document.getElementById('camVideo').srcObject = s; })
+    .catch(() => { showToast('No se pudo acceder a la cámara', 'warn'); wrap.classList.remove('open'); });
 }
 
 function capturarFoto() {
   const video = document.getElementById('camVideo');
-  const canvas = document.createElement('canvas');
-  canvas.width = video.videoWidth; canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  fotoTemp = canvas.toDataURL('image/jpeg', 0.85);
+  if (!video.videoWidth) { showToast('La cámara aún no está lista', 'warn'); return; }
+  fotoTemp = reducirImagen(video, video.videoWidth, video.videoHeight);
   mostrarFotoPreview(fotoTemp);
   detenerCamara();
   document.getElementById('cameraWrap').classList.remove('open');
@@ -676,75 +708,67 @@ function detenerCamara() {
   if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
 }
 
-// ═══════════════════════════════════════
-// UTILS
-// ═══════════════════════════════════════
+// Utilidades de interfaz
 function limpiarForm() {
   ['fNombre','fRaza','fEdad','fColor','fPeso','fAlergias','fVacunas','fVet','fVetTel','fVetDir','fEmNombre','fEmTel','fNotas']
-    .forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
+    .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
   document.getElementById('fEspecie').value = 'Perro';
 }
 
-function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; detenerCamara(); document.getElementById('cameraWrap').classList.remove('open'); }
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+  detenerCamara();
+  document.getElementById('cameraWrap').classList.remove('open');
+}
 
 document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => { if(e.target===o) closeModal(o.id); });
+  o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(o => closeModal(o.id));
 });
 
-function showToast(msg, type='') {
+function showToast(msg, type = '') {
   const wrap = document.getElementById('toastWrap');
   const t = document.createElement('div');
-  t.className = `toast${type?' '+type:''}`;
+  t.className = `toast${type ? ' ' + type : ''}`;
   t.textContent = msg;
   wrap.appendChild(t);
   setTimeout(() => t.remove(), 3500);
 }
 
-// ALERTAS
+// Alertas médicas (resumen)
 function renderAlerts() {
   const container = document.getElementById('alerts');
-  let alertas = JSON.parse(localStorage.getItem('SP_ALERTAS') || 'null');
-  if (!alertas) {
-    alertas = [
-      { id: 1, mascota:'Fiodor', tipo:'Desparasitación', desc:'Desparasitación trimestral', fecha:'2026-05-20', recordar:5, notas:'' },
-      { id: 2, mascota:'Bruno', tipo:'Vacuna', desc:'Vacuna antirrábica anual', fecha:'2026-05-19', recordar:5, notas:'Llevar carnet' },
-      { id: 3, mascota:'Bruno', tipo:'Control veterinario', desc:'Control de rutina', fecha:'2026-06-15', recordar:5, notas:'' },
-      { id: 4, mascota:'Fiodor', tipo:'Medicamento', desc:'Antiparasitario mensual', fecha:'2026-05-30', recordar:3, notas:'' }
-    ];
+  let alertas = leerLS('SP_ALERTAS', null);
+  if (!Array.isArray(alertas)) {
+    alertas = alertasDemo();
     localStorage.setItem('SP_ALERTAS', JSON.stringify(alertas));
   }
-  
+
   document.getElementById('alertCount').textContent = alertas.length;
-  
+
   if (alertas.length === 0) {
     container.innerHTML = '<p class="card-desc" style="text-align:center;padding:20px 0;">No hay alertas pendientes.</p>';
     return;
   }
-  
-  container.innerHTML = '';
-  const today = new Date(); today.setHours(0,0,0,0);
-  
-  alertas.sort((a,b) => new Date(a.fecha) - new Date(b.fecha)).slice(0, 4).forEach(a => {
-    const target = new Date(a.fecha); target.setHours(0,0,0,0);
-    const diff = Math.round((target-today)/86400000);
-    
-    let tagClass, tagText, boxClass;
-    if(diff < 0) { boxClass = 'late'; tagClass = 'alert-late'; tagText = `Vencida hace ${Math.abs(diff)} día${Math.abs(diff)!==1?'s':''}`; }
-    else if(diff === 0) { boxClass = 'soon'; tagClass = 'alert-soon'; tagText = 'Vence hoy'; }
-    else if(diff <= (a.recordar || 5)) { boxClass = 'soon'; tagClass = 'alert-soon'; tagText = `Faltan ${diff} día${diff!==1?'s':''}`; }
-    else { boxClass = 'ok'; tagClass = 'alert-ok'; tagText = `Faltan ${diff} días`; }
 
-    const dateStr = new Date(a.fecha).toLocaleDateString('es-CO',{year:'numeric',month:'long',day:'numeric'});
-    const alertHtml = `
-      <div class="alert ${boxClass}" data-date="${a.fecha}">
+  const clases = { danger: 'late', warn: 'soon', ok: 'ok' };
+  container.innerHTML = '';
+  [...alertas].sort((a, b) => parseFecha(a.fecha) - parseFecha(b.fecha)).slice(0, 4).forEach(a => {
+    const e = calcularEstadoAlerta(a);
+    const box = clases[e.tipo];
+    const fecha = parseFecha(a.fecha).toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+    container.insertAdjacentHTML('beforeend', `
+      <div class="alert ${box}">
         <div>
-          <strong>${a.mascota} · ${a.tipo}</strong>
-          <span class="alert-date">Fecha: ${dateStr}</span>
+          <strong>${esc(a.mascota)} · ${esc(a.tipo)}</strong>
+          <span class="alert-date">Fecha: ${fecha}</span>
         </div>
-        <span class="alert-tag ${tagClass}">${tagText}</span>
-      </div>`;
-    container.insertAdjacentHTML('beforeend', alertHtml);
+        <span class="alert-tag alert-${box}">${e.texto}</span>
+      </div>`);
   });
 }
 

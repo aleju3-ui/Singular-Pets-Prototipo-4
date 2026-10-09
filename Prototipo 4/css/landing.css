@@ -30,7 +30,7 @@ img, video { max-width: 100%; display: block; }
 :focus-visible { outline: 3px solid rgba(248,113,65,.6); outline-offset: 2px; }
 section[id] { scroll-margin-top: var(--nav-h); }
 
-/* ══════════════ NAV ══════════════ */
+/* NAV */
 nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255,255,255,0.94);
@@ -110,7 +110,7 @@ nav {
   box-shadow: 0 3px 12px rgba(248,113,65,0.32);
 }
 
-/* ══════════════ HERO ══════════════ */
+/* HERO */
 #inicio {
   padding: 0;
   background:
@@ -214,7 +214,7 @@ nav {
 .gallery-img:nth-child(2) img { object-position: 60% 38%; }
 .gallery-img:nth-child(3) img { object-position: 50% 40%; }
 
-/* ══════════════ SECCIONES (común) ══════════════ */
+/* SECCIONES (común) */
 section { padding: 56px 0; }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
 .section-tag {
@@ -232,7 +232,7 @@ section { padding: 56px 0; }
 .section-title span { color: var(--orange); }
 .section-sub { font-size: 15px; color: var(--gray); line-height: 1.65; max-width: 520px; }
 
-/* ══════════════ PILARES ══════════════ */
+/* PILARES */
 .pilares-bg { background: var(--gray-light); }
 .pilares-header, .productos-header, .testimonios-header, .blog-header { text-align: center; margin-bottom: 32px; }
 .pilares-header .section-sub, .productos-header .section-sub,
@@ -253,7 +253,7 @@ section { padding: 56px 0; }
 .pilar-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .pilar-card p { font-size: 14px; color: var(--gray); line-height: 1.65; }
 
-/* ══════════════ CÓMO FUNCIONA ══════════════ */
+/* CÓMO FUNCIONA */
 .como-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; }
 .como-img { border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow-lg); }
 .como-img img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 38%; display: block; }
@@ -275,7 +275,7 @@ section { padding: 56px 0; }
 .step h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .step p { font-size: 14px; color: var(--gray); line-height: 1.65; }
 
-/* ══════════════ PRODUCTOS ══════════════ */
+/* PRODUCTOS */
 .productos-bg { background: var(--gray-light); }
 .productos-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
 .producto-card {
@@ -322,7 +322,7 @@ section { padding: 56px 0; }
 .btn-producto-primary { background: var(--orange); color: #fff; box-shadow: 0 4px 14px rgba(248,113,65,0.28); }
 .btn-producto-ghost { background: var(--gray-light); color: var(--text); border: 1.5px solid var(--gray-mid) !important; }
 
-/* ══════════════ TESTIMONIOS (carrusel en celular) ══════════════ */
+/* TESTIMONIOS (carrusel en celular) */
 .testimonios-grid {
   display: flex; gap: 14px;
   overflow-x: auto; scroll-snap-type: x mandatory;
@@ -349,7 +349,7 @@ section { padding: 56px 0; }
 .author-name { font-size: 14px; font-weight: 700; color: var(--text); }
 .author-pet { font-size: 12px; color: var(--gray); margin-top: 1px; }
 
-/* ══════════════ NOSOTROS ══════════════ */
+/* NOSOTROS */
 .nosotros-bg { background: var(--gray-light); }
 .nosotros-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; }
 .nosotros-img { border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow-lg); }
@@ -365,7 +365,7 @@ section { padding: 56px 0; }
 }
 .nosotros-note p { font-size: 13px; color: var(--charcoal); line-height: 1.6; margin: 0; }
 
-/* ══════════════ BLOG ══════════════ */
+/* BLOG */
 .blog-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
 .blog-card { background: var(--white); border: 1px solid var(--gray-mid); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-sm); }
 .blog-img { overflow: hidden; height: 170px; }
@@ -384,7 +384,7 @@ section { padding: 56px 0; }
   display: inline-flex; align-items: center; gap: 4px; min-height: 44px;
 }
 
-/* ══════════════ CONTACTO ══════════════ */
+/* CONTACTO */
 .contacto-bg { background: var(--charcoal); }
 .contacto-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
 .contacto-bg .section-tag { color: #FFB899; }
@@ -440,7 +440,7 @@ section { padding: 56px 0; }
   border-radius: 10px; font-size: 13px; font-weight: 500; text-align: center;
 }
 
-/* ══════════════ CTA FINAL ══════════════ */
+/* CTA FINAL */
 .cta-final { background: var(--orange); padding: 56px 24px; text-align: center; }
 .cta-final h2 { font-size: clamp(28px, 8vw, 34px); font-weight: 900; letter-spacing: -1px; line-height: 1.12; color: #fff; margin-bottom: 14px; }
 .cta-final p { font-size: 16px; color: rgba(255,255,255,0.88); line-height: 1.6; margin: 0 auto 28px; max-width: 480px; }
@@ -451,7 +451,7 @@ section { padding: 56px 0; }
   font-size: 16px; font-weight: 800; box-shadow: 0 8px 28px rgba(0,0,0,0.15);
 }
 
-/* ══════════════ FOOTER ══════════════ */
+/* FOOTER */
 footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset-bottom, 0px)); }
 .footer-grid {
   max-width: 1180px; margin: 0 auto;
@@ -472,7 +472,7 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
 }
 .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.4); }
 
-/* ══════════════ VOLVER ARRIBA ══════════════ */
+/* VOLVER ARRIBA */
 .scroll-top {
   position: fixed; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); right: 16px; z-index: 500;
   width: 48px; height: 48px; border-radius: 50%;
@@ -484,7 +484,7 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
 }
 .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
-/* ══════════════ ANIMACIONES ══════════════ */
+/* ANIMACIONES */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 .fade-up { opacity: 0; animation: fadeUp .7s ease forwards; }
 .fade-up-1 { animation-delay: .1s; }
@@ -680,3 +680,9 @@ footer { background: #1C1C1E; padding: 44px 24px calc(28px + env(safe-area-inset
   .scroll-top { bottom: 28px; right: 28px; }
   .scroll-top:hover { background: var(--orange-dark); }
 }
+
+/* Íconos */
+.pilar-icon { color: var(--orange); }
+.info-row-icon { color: #FFB899; }
+.nosotros-note .icon { color: var(--orange); }
+.footer-bottom .icon { color: var(--orange); }

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Singular Pets — Iniciar Sesión</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/icons.css"/>
+  <script src="../js/icons.js"></script>
   <style>
     :root {
       --orange:      #F87141;
@@ -31,7 +33,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── PANEL IZQUIERDO ── */
+    /* PANEL IZQUIERDO */
     .left {
       position: relative;
       overflow: hidden;
@@ -43,7 +45,7 @@
     .left-photo {
       position: absolute; inset: 0; z-index: 0;
     }
-    .left-photo img {
+    .left-photo img, .left-photo video {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       display: block;
@@ -128,7 +130,7 @@
     }
     .feat span { font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 500; }
 
-    /* ── PANEL DERECHO ── */
+    /* PANEL DERECHO */
     .right {
       background: var(--white);
       display: flex; align-items: center; justify-content: center;
@@ -227,7 +229,7 @@
       display: flex; gap: 14px; align-items: flex-start;
       margin-bottom: 20px;
     }
-    .error-emoji { font-size: 28px; flex-shrink: 0; }
+    .error-icon { font-size: 28px; flex-shrink: 0; color: var(--orange); }
     .error-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .error-msg { font-size: 13px; color: var(--gray); line-height: 1.6; }
     .error-btns { display: flex; gap: 10px; }
@@ -257,6 +259,7 @@
       body { grid-template-columns: 1fr; }
       .left { display: none; }
       .right { padding: 40px 24px; min-height: 100vh; }
+      .form-input { font-size: 16px; }   /* evita el zoom automático en iPhone */
     }
 
     /* Botón volver a inicio */
@@ -276,7 +279,7 @@
       display: none;
     }
     .success-card.show { display: block; }
-    .success-icon { font-size: 48px; margin-bottom: 12px; }
+    .success-icon { font-size: 48px; margin-bottom: 12px; display: flex; justify-content: center; color: #34C759; }
     .success-title { font-size: 20px; font-weight: 800; color: #1A7A35; margin-bottom: 8px; }
     .success-desc { font-size: 14px; color: #2D6A4F; line-height: 1.6; margin-bottom: 20px; }
     .btn-go-login { 
@@ -290,17 +293,14 @@
 </head>
 <body>
 
-<!-- ── PANEL IZQUIERDO ── -->
+<!-- PANEL IZQUIERDO -->
 <div class="left">
   <!-- Imagen del gatito con collar QR naranja -->
   <div class="left-photo">
-  <video autoplay muted loop playsinline
-         style="width:100%; height:100%; object-fit:cover;">
-    <source src="img/fiodor_animado.mp4" type="video/mp4">
-    <!-- Fallback si el video no carga -->
-    <img src="img/fiodor_perfil.jpg" alt="Gato con collar QR Singular Pets">
-  </video>
-</div>>
+    <video autoplay muted loop playsinline poster="img/fiodor_perfil.jpg" aria-label="Gato con collar QR de Singular Pets">
+      <source src="img/fiodor_animado.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="left-bg"></div>
 
   <div class="left-content">
@@ -334,7 +334,7 @@
   </div>
 </div>
 
-<!-- ── PANEL DERECHO ── -->
+<!-- PANEL DERECHO -->
 <div class="right">
   <div class="auth-box">
 
@@ -354,14 +354,14 @@
       <p class="auth-subtitle">Accede a tu cuenta para gestionar tus mascotas.</p>
       <form id="form-login" novalidate>
         <div class="form-group">
-          <label class="form-label">Correo o usuario</label>
+          <label class="form-label" for="login-email">Correo o usuario</label>
           <div class="input-wrap">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <input class="form-input" id="login-email" type="text" placeholder="demo" required autocomplete="username">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Contraseña</label>
+          <label class="form-label" for="login-pass">Contraseña</label>
           <div class="input-wrap">
             <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             <input class="form-input" id="login-pass" type="password" placeholder="••••••••" required autocomplete="current-password">
@@ -385,23 +385,23 @@
       <form id="form-register" novalidate>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Nombre</label>
+            <label class="form-label" for="reg-name">Nombre</label>
             <input class="form-input form-input-plain" id="reg-name" type="text" placeholder="María" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Apellido</label>
+            <label class="form-label" for="reg-lastname">Apellido</label>
             <input class="form-input form-input-plain" id="reg-lastname" type="text" placeholder="Gómez" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Número de cédula</label>
+          <label class="form-label" for="reg-id">Número de cédula</label>
           <div class="input-wrap">
             <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             <input class="form-input" id="reg-id" type="text" placeholder="1234567890" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Fecha de nacimiento</label>
+          <label class="form-label" for="reg-birth">Fecha de nacimiento</label>
           <div class="input-wrap">
             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             <input class="form-input" id="reg-birth" type="date" required>
@@ -424,7 +424,7 @@
       <h2 class="auth-title">Algo salió mal</h2>
       <p class="auth-subtitle">No pudimos procesar tu solicitud.</p>
       <div class="error-card">
-        <div class="error-emoji">⚠️</div>
+        <div class="error-icon"><span data-icon="alert"></span></div>
         <div>
           <div class="error-title">Error de autenticación</div>
           <div class="error-msg" id="error-message">Las credenciales ingresadas no son válidas.</div>
@@ -438,7 +438,7 @@
 
   <!-- ÉXITO REGISTRO -->
   <div class="success-card" id="success-card">
-    <div class="success-icon">🎉</div>
+    <div class="success-icon"><span data-icon="check-circle"></span></div>
     <div class="success-title">¡Cuenta creada!</div>
     <div class="success-desc">Tu cuenta fue registrada exitosamente. Ya puedes iniciar sesión con tus credenciales.</div>
     <button class="btn-go-login" id="btn-go-login">Ir a iniciar sesión</button>

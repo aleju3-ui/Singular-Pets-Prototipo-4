@@ -10,6 +10,8 @@
   <meta name="theme-color" content="#F87141"/>
   <link rel="stylesheet" href="../css/variables.css"/>
   <link rel="stylesheet" href="../css/landing.css"/>
+  <link rel="stylesheet" href="../css/icons.css"/>
+  <script src="../js/icons.js"></script>
 </head>
 <body>
 
@@ -37,7 +39,7 @@
     <a href="#contacto">Contacto</a>
   </div>
   <div class="nav-actions">
-    <a href="../qr-perfil/singular_qr_perfil.html" class="btn-nav-ghost">🐱 Ver perfil demo</a>
+    <a href="../qr-perfil/singular_qr_perfil.html" class="btn-nav-ghost"><span data-icon="paw"></span> Ver perfil demo</a>
     <a href="../inicio_sesion/singular_inicio_sesion.html" class="btn-nav-ghost">Iniciar sesión</a>
     <a href="#contacto" class="btn-nav-cta">Empezar ahora</a>
   </div>
@@ -66,7 +68,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-float-pill">🐾 Perfil activo</div>
+      <div class="hero-float-pill"><span data-icon="paw"></span> Perfil activo</div>
       <div class="hero-img-wrap">
         <video autoplay muted loop playsinline preload="auto"
                poster="img/hero_poster.webp" aria-label="Perro y gato juntos en casa">
@@ -76,7 +78,6 @@
       
       </div>
     </div>
-  </div>
 
   <div class="hero-gallery">
     <div class="gallery-img">
@@ -100,17 +101,17 @@
     </div>
     <div class="pilares-grid">
       <div class="pilar-card">
-        <div class="pilar-icon">🛡️</div>
+        <div class="pilar-icon"><span data-icon="shield"></span></div>
         <h3>Seguridad inteligente</h3>
         <p>Tu mascota siempre identificada, incluso si pierde su placa. Su información vive en la nube y no desaparece.</p>
       </div>
       <div class="pilar-card">
-        <div class="pilar-icon">📱</div>
+        <div class="pilar-icon"><span data-icon="mobile"></span></div>
         <h3>Tecnología fácil</h3>
         <p>Solo escanea el código QR o acerca el celular a la placa NFC. Sin instalar apps. Funciona en cualquier teléfono.</p>
       </div>
       <div class="pilar-card">
-        <div class="pilar-icon">⚡</div>
+        <div class="pilar-icon"><span data-icon="zap"></span></div>
         <h3>Control en tiempo real</h3>
         <p>Actualiza nombre, fotos, número y datos médicos cuando quieras. Los cambios se reflejan al instante.</p>
       </div>
@@ -286,12 +287,12 @@
         <p>Nuestra tecnología permite que, con un simple escaneo, cualquier persona pueda ayudar a tu mejor amigo a volver a casa. Sin aplicaciones pesadas, sin procesos lentos; solo una conexión inmediata entre tú y quien encuentre a tu mascota, con la información médica y de contacto que realmente importa en una emergencia.</p>
         <div class="nosotros-stats">
           <div class="nstat"><strong>100%</strong><span>Sin Apps</span></div>
-          <div class="nstat"><strong>⚡</strong><span>Conexión Inmediata</span></div>
-          <div class="nstat"><strong>🧠</strong><span>Perfil Inteligente</span></div>
+          <div class="nstat"><strong><span data-icon="zap"></span></strong><span>Conexión Inmediata</span></div>
+          <div class="nstat"><strong><span data-icon="id-card"></span></strong><span>Perfil Inteligente</span></div>
           <div class="nstat"><strong>24/7</strong><span>Siempre activo</span></div>
         </div>
         <div class="nosotros-note">
-          <p>ℹ️ <strong>Importante:</strong> Singular Pets complementa el microchip tradicional, no lo reemplaza. Nuestro sistema es de identificación inmediata para quienes encuentren a tu mascota.</p>
+          <p><span data-icon="info"></span> <strong>Importante:</strong> Singular Pets complementa el microchip tradicional, no lo reemplaza. Nuestro sistema es de identificación inmediata para quienes encuentren a tu mascota.</p>
         </div>
       </div>
     </div>
@@ -359,19 +360,19 @@
         <p class="section-sub">Estamos aquí para ayudarte. Escríbenos y te respondemos rápido.</p>
         <div class="contacto-info">
           <div class="info-row">
-            <div class="info-row-icon">📧</div>
+            <div class="info-row-icon"><span data-icon="mail"></span></div>
             <span>info@singularpets.co</span>
           </div>
           <div class="info-row">
-            <div class="info-row-icon">📱</div>
+            <div class="info-row-icon"><span data-icon="phone"></span></div>
             <span>+57 300 123 4567</span>
           </div>
           <div class="info-row">
-            <div class="info-row-icon">🕐</div>
+            <div class="info-row-icon"><span data-icon="clock"></span></div>
             <span>Lun–Vie 9am–6pm · Sáb 10am–2pm</span>
           </div>
           <div class="info-row">
-            <div class="info-row-icon">📍</div>
+            <div class="info-row-icon"><span data-icon="pin"></span></div>
             <span>Colombia</span>
           </div>
         </div>
@@ -379,7 +380,7 @@
       <div class="contacto-form">
         <a href="https://wa.me/573001234567?text=Hola,%20quiero%20información%20sobre%20Singular%20Pets"
            target="_blank" rel="noopener" class="btn-whatsapp">
-          💬 Contáctanos por WhatsApp
+          <span data-icon="chat"></span> Contáctanos por WhatsApp
         </a>
         <div class="form-divider">o escríbenos</div>
         <form id="contact-form">
@@ -403,7 +404,7 @@
           </div>
           <button type="submit" class="btn-submit">Enviar mensaje</button>
         </form>
-        <div id="form-success">✓ ¡Mensaje enviado! Te contactaremos pronto.</div>
+        <div id="form-success"><span data-icon="check"></span> ¡Mensaje enviado! Te contactaremos pronto.</div>
       </div>
     </div>
   </div>
@@ -460,8 +461,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Singular Pets. Todos los derechos reservados.</p>
-    <p>Hecho con amor en Colombia 🐾</p>
+    <p>© <span id="anio">2026</span> Singular Pets. Todos los derechos reservados.</p>
+    <p>Hecho con amor en Colombia <span data-icon="paw"></span></p>
   </div>
 </footer>
 
@@ -505,6 +506,7 @@
 
 <script>
   // Scroll to top visibility
+  document.getElementById('anio').textContent = new Date().getFullYear();
   const scrollBtn = document.getElementById('scrollTop');
   window.addEventListener('scroll', () => {
     scrollBtn.classList.toggle('visible', window.scrollY > 400);

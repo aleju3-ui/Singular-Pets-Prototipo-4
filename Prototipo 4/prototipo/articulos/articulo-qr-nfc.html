@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cómo el QR/NFC protege a tu mascota — Singular Pets</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/icons.css"/>
+  <script src="../../js/icons.js"></script>
   <style>
     :root {
       --orange: #F87141; --orange-dark: #E05E2A; --orange-pale: #FEF0E9;
@@ -27,7 +29,7 @@
     .article-title { font-size: clamp(30px, 5vw, 48px); font-weight: 900; letter-spacing: -1.5px; color: var(--text); line-height: 1.1; margin-bottom: 16px; }
     .article-subtitle { font-size: 18px; color: var(--gray); font-weight: 400; line-height: 1.7; margin-bottom: 28px; max-width: 640px; }
     .article-meta { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--gray-mid); border-bottom: 1px solid var(--gray-mid); margin-bottom: 36px; }
-    .meta-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .meta-avatar { color: var(--orange); width: 40px; height: 40px; border-radius: 50%; background: var(--orange-pale); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
     .meta-info p:first-child { font-size: 14px; font-weight: 600; color: var(--text); }
     .meta-info p:last-child { font-size: 12px; color: var(--gray); margin-top: 1px; }
     .article-img { max-width: 860px; margin: 0 auto 48px; border-radius: 20px; overflow: hidden; height: 420px; box-shadow: var(--shadow-md); }
@@ -82,11 +84,11 @@
 </nav>
 
 <div class="article-hero">
-  <span class="article-tag">🛡️ Tecnología</span>
+  <span class="article-tag"><span data-icon="shield"></span> Tecnología</span>
   <h1 class="article-title">Cómo el QR/NFC protege a tu mascota</h1>
   <p class="article-subtitle">Entender la diferencia entre el microchip y la placa QR/NFC puede ayudarte a tomar la mejor decisión para la seguridad de tu mascota.</p>
   <div class="article-meta">
-    <div class="meta-avatar">🐾</div>
+    <div class="meta-avatar"><span data-icon="paw"></span></div>
     <div class="meta-info">
       <p>Equipo Singular Pets</p>
       <p>5 de mayo, 2026 · 6 min de lectura</p>
@@ -108,7 +110,7 @@
   <p>Cuando alguien escanea la placa de tu mascota, su celular abre inmediatamente una página web con toda la información de contacto y datos relevantes. No necesita instalar ninguna aplicación.</p>
 
   <div class="tip-box">
-    <p><strong>💡 ¿Sabías que?</strong> El 96% de los celulares modernos pueden leer códigos QR directamente desde la cámara nativa, sin necesidad de apps adicionales. Esto hace que la placa QR sea accesible para prácticamente cualquier persona.</p>
+    <p><strong><span data-icon="bulb"></span> ¿Sabías que?</strong> El 96% de los celulares modernos pueden leer códigos QR directamente desde la cámara nativa, sin necesidad de apps adicionales. Esto hace que la placa QR sea accesible para prácticamente cualquier persona.</p>
   </div>
 
   <h2>¿Qué es NFC y cómo funciona?</h2>
@@ -184,7 +186,7 @@
   </ol>
 
   <div class="tip-box">
-    <p><strong>🐾 Caso real:</strong> En promedio, las mascotas con placa QR activa son devueltas a sus dueños en menos de 2 horas cuando alguien las encuentra. Con microchip solo, el proceso puede tomar 24-48 horas o más.</p>
+    <p><strong><span data-icon="paw"></span> Caso real:</strong> En promedio, las mascotas con placa QR activa son devueltas a sus dueños en menos de 2 horas cuando alguien las encuentra. Con microchip solo, el proceso puede tomar 24-48 horas o más.</p>
   </div>
 
   <h2>¿Reemplaza el microchip?</h2>
@@ -212,7 +214,7 @@
   </ul>
 
   <div class="article-cta">
-    <h3>🐾 Dale a tu mascota la protección que merece</h3>
+    <h3><span data-icon="paw"></span> Dale a tu mascota la protección que merece</h3>
     <p>Placa QR/NFC + perfil digital en la nube. Cualquier persona puede contactarte al instante. Sin apps, sin complicaciones.</p>
     <a href="../../inicio_sesion/singular_inicio_sesion.html" class="btn-cta">Empezar gratis →</a>
   </div>
