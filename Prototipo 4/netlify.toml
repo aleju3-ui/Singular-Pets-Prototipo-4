@@ -1,0 +1,4 @@
+# Singular Pets — configuración de Netlify
+# El sitio es estático (sin paso de compilación) y vive en la carpeta "Prototipo 4".
+[build]
+  publish = "Prototipo 4"
