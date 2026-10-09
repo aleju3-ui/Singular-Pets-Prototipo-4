@@ -1,0 +1,6 @@
+# Singular Pets — configuración de Netlify
+# Netlify lee este archivo desde la raíz del repositorio.
+# El sitio es estático (sin paso de compilación) y vive en "Prototipo 4/Prototipo 4".
+[build]
+  base    = "Prototipo 4"
+  publish = "Prototipo 4"   # relativo a "base" → Prototipo 4/Prototipo 4
